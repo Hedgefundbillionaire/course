@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Break Into European VC — The Recruiting Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --fg: #1A1A1A;
+    --muted: #6B6B6B;
+    --highlight: #2D5BFF;
+    --highlight-soft: rgba(45,91,255,0.06);
+    --card-bg: #FFFFFF;
+    --border: #E8E8E4;
+    --red: #D44;
+    --hero-bg: #0B1D3A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .container--narrow {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* HERO SECTION - full bleed */
+  .hero-wrapper {
+    background: linear-gradient(165deg, #0B1D3A 0%, #143A6B 50%, #1A5BA0 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(45,91,255,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(26,91,160,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-nav {
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.1s forwards;
+  }
+  .hero-nav .logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+
+  .hero {
+    padding: 80px 0 100px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.2s forwards;
+  }
+  .hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(3.3rem, 7.5vw, 4.7rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    color: #fff;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: #6BA3FF;
+  }
+  .hero .subhead {
+    font-size: 1.08rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.65;
+    max-width: 560px;
+    margin: 0 auto 40px;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    color: var(--hero-bg);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 16px 36px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .cta-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+  .cta-btn--dark {
+    background: var(--fg);
+    color: #fff;
+  }
+  .cta-btn--dark:hover {
+    opacity: 0.85;
+  }
+
+  /* LOGO BAR */
+  .logo-bar {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.4s forwards;
+  }
+  .logo-bar-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .logo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .logo-item {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #B0B0B0;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  /* PAIN */
+  .pain {
+    padding: 80px 0 64px;
+  }
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--highlight);
+    margin-bottom: 14px;
+  }
+  .pain h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    line-height: 1.2;
+  }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .pain-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .pain-card .icon {
+    width: 32px;
+    height: 32px;
+    background: #FEF0F0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+  .pain-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* CREDIBILITY */
+  .credibility {
+    padding: 64px 0;
+    border-top: 1px solid var(--border);
+  }
+  .cred-inner {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 44px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .cred-inner .quote {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .cred-inner .bio {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* CHAPTERS */
+  .chapters {
+    padding: 64px 0 80px;
+    border-top: 1px solid var(--border);
+  }
+  .chapters h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    line-height: 1.2;
+  }
+  .chapter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .chapter-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .chapter-card:hover {
+    border-color: rgba(45,91,255,0.25);
+    transform: translateY(-2px);
+  }
+  .chapter-card.span-full {
+    grid-column: 1 / -1;
+  }
+  .chapter-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    color: var(--highlight);
+    margin-bottom: 10px;
+    opacity: 0.4;
+  }
+  .chapter-card h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .chapter-card p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* FAQ */
+  .faq {
+    padding: 64px 0;
+    border-top: 1px solid var(--border);
+  }
+  .faq h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+  }
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .faq-item h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .faq-item p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* BOTTOM CTA */
+  .bottom-cta {
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .bottom-cta h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .bottom-cta .sub {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .bottom-cta .price-line {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+  .bottom-cta .price-line s { color: #B0B0B0; margin-right: 4px; }
+  .bottom-cta .price-line strong { color: var(--fg); font-weight: 600; font-size: 1.1rem; }
+  .bottom-cta .price-line .discount {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--highlight);
+    background: var(--highlight-soft);
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+  }
+
+  footer {
+    padding: 28px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.7rem;
+    color: #AAA;
+  }
+
+  /* STICKY MOBILE */
+  .sticky-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 20px;
+    background: rgba(250,250,248,0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    z-index: 100;
+    text-align: center;
+  }
+  .sticky-cta .cta-btn--dark {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+  }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 24px; }
+    .container--narrow { padding: 0 24px; }
+    .hero { padding: 52px 0 64px; }
+    .hero h1 { font-size: 2rem; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .chapter-grid { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .logo-row { gap: 24px; }
+    .logo-item { font-size: 0.78rem; }
+    .cred-inner { padding: 28px 24px; }
+    .sticky-cta { display: block; }
+    .bottom-cta { padding-bottom: 110px; }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO - full bleed -->
+<div class="hero-wrapper">
+  <div class="container">
+    <nav class="hero-nav">
+      <div class="logo">The VC Playbook</div>
+    </nav>
+    <section class="hero">
+      <h1>Break into a top <em>venture capital</em> fund</h1>
+      <p class="subhead">Everything you need to find opportunities, get in front of the right funds, and land an offer.</p>
+      <div class="cta-row">
+        <a href="https://buy.stripe.com/dRm8wQ9Wga4c2wd3vOfUQ01" class="cta-btn">Get the playbook →</a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- REST OF PAGE -->
+<div class="container">
+
+  <section class="logo-bar">
+    <div class="logo-bar-label">Previous candidates landed offers at</div>
+    <div class="logo-row">
+      <span class="logo-item">Eurazeo</span>
+      <span class="logo-item">Revaia</span>
+      <span class="logo-item">Serena</span>
+      <span class="logo-item">Daphni</span>
+      <span class="logo-item">Iris</span>
+    </div>
+  </section>
+
+  <section class="pain">
+    <div class="section-label">The problem</div>
+    <h2>European VC recruiting is a black box</h2>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="icon">✕</div>
+        <p>Everything you know about VC is scattered across 50 newsletters, 30 podcasts, and random Twitter threads. There's no single source that explains how European VC recruiting actually works.</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">✕</div>
+        <p>Nobody tells you what funds are actually looking for. It's not the same as IB or PE — the criteria aren't written down anywhere, and every fund evaluates differently.</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">✕</div>
+        <p>There's no standardized process. No on-cycle. No headhunters. No Glassdoor threads with "here's what they asked me." You're navigating blind.</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">✕</div>
+        <p>Roles aren't posted. By the time they are, they're already filled through someone's network. If you don't know how to find opportunities early, you never get a shot.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="credibility">
+    <div class="cred-inner">
+      <div class="section-label">From the author</div>
+      <div class="bio" style="font-size:0.95rem;color:var(--fg);margin-top:12px;">
+        When I was recruiting for European VC from business school, nothing was written down. No process, no playbook, no single source of truth. I spent hundreds of hours in conversations with VCs and candidates to piece it together. This guide is the result — so you can skip the guesswork and go straight to getting offers.
+      </div>
+    </div>
+  </section>
+
+  <section class="chapters">
+    <div class="section-label">What's inside</div>
+    <h2>Seven chapters. Zero filler.</h2>
+    <div class="chapter-grid">
+      <div class="chapter-card">
+        <div class="chapter-num">01</div>
+        <h3>How European VC recruiting actually works</h3>
+        <p>Why it's nothing like IB or PE, and the mental model you need before doing anything else.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">02</div>
+        <h3>Finding opportunities before they're posted</h3>
+        <p>Where to look, who to talk to, and how to surface roles that never hit LinkedIn.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">03</div>
+        <h3>Cold outreach that gets replies</h3>
+        <p>What to write, who to target, and the difference between emails that get ignored and ones that start conversations.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">04</div>
+        <h3>What funds are actually evaluating you on</h3>
+        <p>The unwritten criteria behind every VC hire — and why your CV matters less than you think.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">05</div>
+        <h3>Building a market thesis</h3>
+        <p>How to develop and present a point of view that shows you can think like an investor.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">06</div>
+        <h3>The interview process — first call to offer</h3>
+        <p>What to expect at each stage, how to prepare, and the mistakes that kill candidates who look good on paper.</p>
+      </div>
+      <div class="chapter-card span-full">
+        <div class="chapter-num">07</div>
+        <h3>Positioning your background</h3>
+        <p>Whether you're coming from IB, consulting, a startup, or something else entirely — how to make your story work for VC.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <h2>Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>Do I need an investment banking background?</h3>
+        <p>No. The guide covers how to position yourself from any background — IB, consulting, startups, or non-traditional paths. European VC cares less about pedigree than you think.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is this relevant for UK funds too?</h3>
+        <p>Yes. The guide covers recruiting across European VC broadly — including London, Paris, and Berlin-based funds.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What exactly do I get?</h3>
+        <p>A PDF guide covering seven chapters on how to break into European VC. Tactical, specific, no filler. Delivered immediately after purchase.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is there a refund policy?</h3>
+        <p>Yes — if it's not useful, email within 14 days for a full refund. No questions asked.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-cta">
+    <h2>Stop guessing how European VC works</h2>
+    <p class="sub">One guide. The whole playbook.</p>
+    <div class="price-line">
+      <s>€70</s> <strong>€49</strong>
+      <span class="discount">30% off</span>
+    </div>
+    <a href="https://buy.stripe.com/dRm8wQ9Wga4c2wd3vOfUQ01" class="cta-btn--dark cta-btn">Get the playbook →</a>
+  </section>
+
+  <footer>© 2026 — All rights reserved</footer>
+
+</div>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta">
+  <a href="https://buy.stripe.com/dRm8wQ9Wga4c2wd3vOfUQ01" class="cta-btn cta-btn--dark">Get the playbook — €49 →</a>
+</div>
+
+</body>
+</html>
