@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyside School — Break Into European VC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<script src="https://widget.senja.io/widget/d8981307-8353-4f7e-91a2-3fa5d1057ddb/platform.js" type="text/javascript" async></script>
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --fg: #1A1A1A;
+    --muted: #6B6B6B;
+    --highlight: #2D5BFF;
+    --highlight-soft: rgba(45,91,255,0.06);
+    --card-bg: #FFFFFF;
+    --border: #E8E8E4;
+    --red: #D44;
+    --navy: #0B1D3A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--bg); color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden; line-height: 1.6;
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+
+  /* NAV */
+  .top-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .top-nav .container {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 16px; padding-bottom: 16px;
+  }
+  .nav-logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.15rem; color: var(--fg); text-decoration: none;
+  }
+  .nav-cta {
+    font-size: 0.82rem; font-weight: 600;
+    background: var(--fg); color: #fff;
+    padding: 10px 24px; border-radius: 6px;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero-wrapper {
+    background: linear-gradient(165deg, #0B1D3A 0%, #143A6B 50%, #1A5BA0 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero-wrapper::before {
+    content: ''; position: absolute;
+    top: -50%; right: -20%; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(45,91,255,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero {
+    padding: 80px 0 72px; text-align: center;
+    position: relative; z-index: 1;
+    opacity: 0; animation: fadeUp 0.6s ease 0.15s forwards;
+  }
+  .hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.6rem, 6.5vw, 4.2rem);
+    font-weight: 400; line-height: 1.1;
+    letter-spacing: -0.03em; color: #fff;
+    max-width: 720px; margin: 0 auto 20px;
+  }
+  .hero h1 em { font-style: italic; color: #6BA3FF; }
+  .hero .subhead {
+    font-size: 1.05rem; color: rgba(255,255,255,0.6);
+    line-height: 1.65; max-width: 520px; margin: 0 auto 32px;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #fff; color: var(--navy);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 600;
+    padding: 16px 40px; border-radius: 8px;
+    text-decoration: none; transition: opacity 0.2s, transform 0.15s;
+  }
+  .hero-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+  .hero-proof {
+    margin-top: 28px; display: flex; align-items: center;
+    justify-content: center; gap: 8px; flex-wrap: wrap;
+  }
+  .hero-stars { color: #FACC15; font-size: 1.1rem; letter-spacing: 2px; }
+  .hero-proof-text { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+
+  /* LOGO BAR */
+  .logo-bar {
+    padding: 44px 0; border-bottom: 1px solid var(--border);
+    opacity: 0; animation: fadeUp 0.6s ease 0.35s forwards;
+  }
+  .logo-bar-label {
+    font-size: 0.68rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--muted); text-align: center; margin-bottom: 20px;
+  }
+  .logo-row {
+    display: flex; justify-content: center; align-items: center;
+    gap: 48px; flex-wrap: wrap;
+  }
+  .logo-item {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; font-weight: 700;
+    color: #B8B8B8; letter-spacing: 0.02em; text-transform: uppercase;
+  }
+
+  /* STATS */
+  .stats {
+    padding: 56px 0; border-bottom: 1px solid var(--border);
+    display: flex; justify-content: center; gap: 64px; flex-wrap: wrap;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2.4rem; color: var(--highlight); line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 6px; }
+
+  /* SECTION COMMONS */
+  .section-label {
+    font-size: 0.68rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--highlight); margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem; font-weight: 400;
+    letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 40px;
+  }
+
+  /* PAIN */
+  .pain { padding: 72px 0 64px; }
+  .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .pain-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 28px;
+  }
+  .pain-card .icon {
+    width: 32px; height: 32px; background: #FEF0F0;
+    border-radius: 8px; display: flex; align-items: center;
+    justify-content: center; font-size: 0.8rem;
+    color: var(--red); margin-bottom: 16px;
+  }
+  .pain-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+  /* CREDIBILITY */
+  .credibility { padding: 64px 0; border-top: 1px solid var(--border); }
+  .cred-inner {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 44px;
+    max-width: 720px; margin: 0 auto;
+  }
+
+  /* CHAPTERS */
+  .chapters { padding: 64px 0 80px; border-top: 1px solid var(--border); }
+  .chapter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .chapter-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 28px;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .chapter-card:hover { border-color: rgba(45,91,255,0.25); transform: translateY(-2px); }
+  .chapter-card.span-full { grid-column: 1 / -1; }
+  .chapter-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem; color: var(--highlight);
+    margin-bottom: 10px; opacity: 0.4;
+  }
+  .chapter-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+  .chapter-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+
+  /* MID CTA */
+  .mid-cta { padding: 64px 0; border-top: 1px solid var(--border); text-align: center; }
+  .mid-cta .section-title { margin-bottom: 8px; }
+  .mid-cta .sub { font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; }
+  .price-line { font-size: 0.88rem; color: var(--muted); margin-bottom: 28px; }
+  .price-line s { color: #B0B0B0; margin-right: 4px; }
+  .price-line strong { color: var(--fg); font-weight: 600; font-size: 1.1rem; }
+  .price-line .discount {
+    font-size: 0.72rem; font-weight: 600;
+    color: var(--highlight); background: var(--highlight-soft);
+    padding: 3px 8px; border-radius: 4px; margin-left: 8px;
+  }
+  .dark-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--fg); color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem; font-weight: 600;
+    padding: 16px 40px; border-radius: 8px;
+    text-decoration: none; transition: opacity 0.2s, transform 0.15s;
+  }
+  .dark-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  /* FAQ */
+  .faq { padding: 64px 0; border-top: 1px solid var(--border); }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .faq-item h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; }
+  .faq-item p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+  /* TESTIMONIALS */
+  .testimonials { padding: 72px 40px; text-align: center; }
+
+  /* DARK FOOTER */
+  .site-footer {
+    background: linear-gradient(165deg, #0B1D3A 0%, #143A6B 100%);
+    color: #fff; padding: 40px;
+  }
+  .footer-inner {
+    max-width: 1080px; margin: 0 auto;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 20px;
+  }
+  .footer-inner a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.85rem; }
+  .footer-inner a:hover { color: #fff; }
+
+  /* STICKY MOBILE */
+  .sticky-cta {
+    display: none; position: fixed; bottom: 0; left: 0; right: 0;
+    padding: 12px 20px;
+    background: rgba(250,250,248,0.95);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    z-index: 100; text-align: center;
+  }
+  .sticky-cta .dark-cta { width: 100%; justify-content: center; padding: 14px 24px; }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 24px; }
+    .hero { padding: 52px 0 56px; }
+    .hero h1 { font-size: 2rem; }
+    .pain-grid, .chapter-grid, .faq-grid { grid-template-columns: 1fr; }
+    .stats { gap: 32px; }
+    .logo-row { gap: 24px; }
+    .logo-item { font-size: 0.78rem; }
+    .cred-inner { padding: 28px 24px; }
+    .sticky-cta { display: block; }
+    .mid-cta { padding-bottom: 110px; }
+    .testimonials { padding: 56px 24px; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <div class="container">
+    <a href="#" class="nav-logo">Buyside School</a>
+    <a href="https://buy.stripe.com/dRm8wQ9Wga4c2wd3vOfUQ01" class="nav-cta">Get the playbook →</a>
+  </div>
+</nav>
+
+<div class="hero-wrapper">
+  <div class="container">
+    <section class="hero">
+      <h1>Break into a top <em>European VC</em> fund</h1>
+      <p class="subhead">The recruiting playbook that's helped candidates land offers at top European funds. Seven chapters, zero filler.</p>
+      <a href="https://buy.stripe.com/dRm8wQ9Wga4c2wd3vOfUQ01" class="hero-cta">Get the playbook — €49 →</a>
+      <div class="hero-proof">
+        <span class="hero-stars">★★★★★</span>
+        <span class="hero-proof-text">Avg. 4.9/5 · Trusted by candidates across Europe</span>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="container">
+  <section class="logo-bar">
+    <div class="logo-bar-label">Previous candidates landed offers at</div>
+    <div class="logo-row">
+      <span class="logo-item">Eurazeo</span>
+      <span class="logo-item">Revaia</span>
+      <span class="logo-item">Serena</span>
+      <span class="logo-item">Daphni</span>
+      <span class="logo-item">Iris</span>
+    </div>
+  </section>
+</div>
+
+<div class="container">
+  <div class="stats">
+    <div class="stat-item">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Chapters</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Candidates helped</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4.9</div>
+      <div class="stat-label">Avg. rating</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Money-back guarantee</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <section class="pain">
+    <div class="section-label">The problem</div>
+    <h2 class="section-title">European VC recruiting is a black box</h2>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="icon">✕</div>
+        <p>Everything you know about VC is scattered across 50 newsletters, 30 podcasts, and random Twitter threads. There's no single source that explains how European VC recruiting actually works.</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">✕</div>
+        <p>Nobody tells you what funds are actually looking for. It's not the same as IB or PE — the criteria aren't written down anywhere, and every fund evaluates differently.</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">✕</div>
+        <p>There's no standardized process. No on-cycle. No headhunters. No Glassdoor threads with "here's what they asked me." You're navigating blind.</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">✕</div>
+        <p>Roles aren't posted. By the time they are, they're already filled through someone's network. If you don't know how to find opportunities early, you never get a shot.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="container">
+  <section class="credibility">
+    <div class="cred-inner">
+      <div class="section-label">From the author</div>
+      <div style="font-size:0.95rem;color:var(--fg);margin-top:12px;line-height:1.65;">
+        When I was recruiting for European VC from business school, nothing was written down. No process, no playbook, no single source of truth. I spent hundreds of hours in conversations with VCs and candidates to piece it together. This guide is the result — so you can skip the guesswork and go straight to getting offers.
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="container">
+  <section class="chapters">
+    <div class="section-label">What's inside</div>
+    <h2 class="section-title">Seven chapters. Zero filler.</h2>
+    <div class="chapter-grid">
+      <div class="chapter-card">
+        <div class="chapter-num">01</div>
+        <h3>How European VC recruiting actually works</h3>
+        <p>Why it's nothing like IB or PE, and the mental model you need before doing anything else.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">02</div>
+        <h3>Finding opportunities before they're posted</h3>
+        <p>Where to look, who to talk to, and how to surface roles that never hit LinkedIn.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">03</div>
+        <h3>Cold outreach that gets replies</h3>
+        <p>What to write, who to target, and the difference between emails that get ignored and ones that start conversations.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">04</div>
+        <h3>What funds are actually evaluating you on</h3>
+        <p>The unwritten criteria behind every VC hire — and why your CV matters less than you think.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">05</div>
+        <h3>Building a market thesis</h3>
+        <p>How to develop and present a point of view that shows you can think like an investor.</p>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-num">06</div>
+        <h3>The interview process — first call to offer</h3>
+        <p>What to expect at each stage, how to prepare, and the mistakes that kill candidates who look good on paper.</p>
+      </div>
+      <div class="chapter-card span-full">
+        <div class="chapter-num">07</div>
+        <h3>Positioning your background</h3>
+        <p>Whether you're coming from IB, consulting, a startup, or something else entirely — how to make your story work for VC.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="container">
+  <section class="mid-cta">
+    <h2 class="section-title">Stop guessing how European VC works</h2>
+    <p class="sub">One guide. The whole playbook.</p>
+    <div class="price-line">
+      <s>€70</s> <strong>€49</strong>
+      <span class="discount">30% off</span>
+    </div>
+    <a href="https://buy.stripe.com/dRm8wQ9Wga4c2wd3vOfUQ01" class="dark-cta">Get the playbook →</a>
+  </section>
+</div>
+
+<div class="container">
+  <section class="faq">
+    <h2 class="section-title">Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>Do I need an investment banking background?</h3>
+        <p>No. The guide covers how to position yourself from any background — IB, consulting, startups, or non-traditional paths. European VC cares less about pedigree than you think.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is this relevant for UK funds too?</h3>
+        <p>Yes. The guide covers recruiting across European VC broadly — including London, Paris, and Berlin-based funds.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What exactly do I get?</h3>
+        <p>A PDF guide covering seven chapters on how to break into European VC. Tactical, specific, no filler. Delivered immediately after purchase.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is there a refund policy?</h3>
+        <p>Yes — if it's not useful, email within 14 days for a full refund. No questions asked.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="testimonials">
+  <h2 class="section-title">We'll help you reach your goals</h2>
+  <div class="senja-embed" data-id="d8981307-8353-4f7e-91a2-3fa5d1057ddb" data-mode="shadow" data-lazyload="false" style="display:block;width:100%;max-width:1080px;margin:0 auto;"></div>
+</div>
+
+<div class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div style="font-weight:700;font-size:0.85rem;margin-bottom:12px;">Company</div>
+      <a href="mailto:contact@buysideschool.org">contact@buysideschool.org</a>
+    </div>
+    <a href="https://www.linkedin.com/company/buysideschool/" target="_blank" rel="noopener" style="color:#fff;">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+    </a>
+  </div>
+</div>
+
+<div class="sticky-cta">
+  <a href="https://buy.stripe.com/dRm8wQ9Wga4c2wd3vOfUQ01" class="dark-cta">Get the playbook — €49 →</a>
+</div>
+
+</body>
+</html>
