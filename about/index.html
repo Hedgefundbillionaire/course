@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Buyside School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --fg: #1A1A1A;
+    --muted: #7A7A7A;
+    --highlight: #2D5BFF;
+    --highlight-soft: rgba(45,91,255,0.06);
+    --card-bg: #FFFFFF;
+    --border: #E8E8E4;
+    --navy: #0B1D3A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--bg); color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden; line-height: 1.6;
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+
+  /* NAV */
+  .top-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .top-nav .container {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 14px; padding-bottom: 14px;
+  }
+  .nav-logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.15rem; color: var(--fg); text-decoration: none;
+  }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-link {
+    font-size: 0.82rem; color: var(--muted);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--fg); }
+  .nav-cta {
+    font-size: 0.82rem; font-weight: 600;
+    background: var(--fg); color: #fff;
+    padding: 10px 24px; border-radius: 6px;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .about-hero {
+    background: linear-gradient(165deg, #0B1D3A 0%, #122F5A 50%, #1A5BA0 100%);
+    position: relative; overflow: hidden;
+    padding: 72px 0 80px;
+  }
+  .about-hero::before {
+    content: ''; position: absolute;
+    top: -40%; right: -15%; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(45,91,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .about-hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.2rem, 4.5vw, 3rem);
+    font-weight: 400; line-height: 1.12;
+    letter-spacing: -0.03em; color: #fff;
+    max-width: 600px;
+    opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+  .about-hero h1 em { font-style: italic; color: #6BA3FF; }
+
+  /* MISSION */
+  .mission {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .mission-label {
+    font-size: 0.65rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--highlight); margin-bottom: 12px;
+  }
+  .mission h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.85rem; font-weight: 400;
+    letter-spacing: -0.02em; line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .mission p {
+    font-size: 0.88rem; color: var(--muted);
+    line-height: 1.65; margin-bottom: 16px;
+  }
+
+
+
+  /* QUOTE */
+  .quote-section {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .quote-box {
+    background: linear-gradient(165deg, #0B1D3A 0%, #143A6B 100%);
+    border-radius: 12px;
+    padding: 48px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .quote-box::before {
+    content: '\201C';
+    position: absolute;
+    top: 20px; left: 36px;
+    font-family: 'Instrument Serif', serif;
+    font-size: 5rem; color: rgba(107,163,255,0.2);
+    line-height: 1;
+  }
+  .quote-box blockquote {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.3rem; font-style: italic;
+    color: #fff; line-height: 1.5;
+    position: relative; z-index: 1;
+    max-width: 560px;
+  }
+  .quote-box .attribution {
+    margin-top: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-style: normal;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* DARK FOOTER */
+  .site-footer {
+    background: linear-gradient(165deg, #0B1D3A 0%, #143A6B 100%);
+    color: #fff; padding: 36px 40px;
+  }
+  .footer-inner {
+    max-width: 1080px; margin: 0 auto;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 20px;
+  }
+  .footer-inner a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.82rem; }
+  .footer-inner a:hover { color: #fff; }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 24px; }
+    .about-hero { padding: 52px 0 56px; }
+    .about-hero h1 { font-size: 2rem; }
+    .mission-grid { grid-template-columns: 1fr; gap: 32px; }
+    .quote-box { padding: 36px 28px; }
+    .quote-box blockquote { font-size: 1.1rem; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <div class="container">
+    <a href="/" class="nav-logo">Buyside School</a>
+    <div class="nav-links">
+      <a href="/about" class="nav-link">About Us</a>
+      <a href="/resources" class="nav-link">Resources</a>
+      <a href="/#chapters" class="nav-link">Curriculum</a>
+      <a href="index.html#faq" class="nav-link">FAQ</a>
+      <a href="https://buy.stripe.com/dRm8wQ9Wga4c2wd3vOfUQ01" class="nav-cta">Get the playbook →</a>
+    </div>
+  </div>
+</nav>
+
+<div class="about-hero">
+  <div class="container">
+    <h1>Learn to think like a <em>Venture Capital Investor</em></h1>
+  </div>
+</div>
+
+<div class="container">
+  <section class="mission">
+    <div class="mission-grid">
+      <div>
+        <div class="mission-label">Our mission</div>
+        <h2>We built what we wished existed when we were recruiting</h2>
+      </div>
+      <div>
+        <p>In 2025, we created Buyside School with one simple mission: help the next generation of investors. Having gone through multiple stages of recruiting processes ourselves, we know how stressful the process can be. We're here to share with you everything we learned.</p>
+        <p>We are a small team of former professionals from the world's top Venture Firms. We've not only went through the recruiting process that you're currently undergoing, but have also sat on the opposite side of the table evaluating candidates.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+<div class="container">
+  <section class="quote-section">
+    <div class="quote-box">
+      <blockquote>
+        I went through the course nights and weekends while still at my old job. The structure made that possible. I landed a VC Associate role at a Tier 1 fund.
+      </blockquote>
+      <div class="attribution">VC Associate, Tier 1 European Fund</div>
+    </div>
+  </section>
+</div>
+
+<div class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div style="font-weight:700;font-size:0.82rem;margin-bottom:10px;">Company</div>
+      <a href="mailto:contact@buysideschool.org">contact@buysideschool.org</a>
+    </div>
+    <a href="https://www.linkedin.com/company/buysideschool/" target="_blank" rel="noopener" style="color:#fff;">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
