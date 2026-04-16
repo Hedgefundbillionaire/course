@@ -406,18 +406,65 @@
     color: var(--highlight); margin-top: 10px; transition: gap 0.2s;
   }
   .memo-card:hover .memo-arrow { gap: 8px; }
+  .nav-item { position: relative; }
+.nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.dropdown {
+  position: absolute; top: calc(100% + 12px); left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 10px; box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  padding: 20px; display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0 32px; min-width: 360px;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  z-index: 100;
+}
+.dropdown-col-label {
+  font-size: 0.65rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--muted); margin-bottom: 10px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--border);
+}
+.dropdown-link {
+  display: block; font-size: 0.82rem;
+  color: var(--fg); text-decoration: none;
+  padding: 6px 0; transition: color 0.15s;
+}
+.dropdown-link:hover { color: var(--highlight); }
+.dropdown-link .link-desc {
+  font-size: 0.72rem; color: var(--muted);
+  display: block; margin-top: 1px;
+}
 </style>
 </head>
 <body>
 
 <nav class="top-nav">
   <div class="container">
-    <a href="#" class="nav-logo">Buyside School</a>
+    <a href="/" class="nav-logo">Buyside School</a>
     <div class="nav-links">
-      <a href="about" class="nav-link">About Us</a>
-      <a href="resources" class="nav-link">Resources</a>
-      
-      
+      <a href="/about" class="nav-link">About Us</a>
+      <div class="nav-item">
+        <a class="nav-link" style="cursor:default;">Resources ▾</a>
+        <div class="dropdown">
+          <div>
+            <div class="dropdown-col-label">Investment Memos</div>
+            <a href="/resources" class="dropdown-link">
+              All Memos
+              <span class="link-desc">VC memos from top funds</span>
+            </a>
+          </div>
+          <div>
+            <div class="dropdown-col-label">Venture Capital Firms</div>
+            <a href="/blog" class="dropdown-link">
+              All Firms
+              <span class="link-desc">Profiles, teams & recruiting</span>
+            </a>
+            <a href="/blog/20vc" class="dropdown-link">20VC</a>
+          </div>
+        </div>
+      </div>
+      <a href="https://buy.stripe.com/dRm8wQ9Wga4c2wd3vOfUQ01" class="nav-cta">Get the playbook →</a>
     </div>
   </div>
 </nav>
