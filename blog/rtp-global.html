@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Why RTP Global: Interviews, Careers, & Portfolio | Buyside School</title>
-<meta name="description" content="RTP Global overview: self-funded $1B fund, Datadog and Miro backer, global early-stage investing and how to break in.">
+<meta name="description" content="RTP Global overview: self-funded $1B fund, Datadog and Miro backer, how to break in.">
 <meta property="og:title" content="Why RTP Global: Interviews, Careers, & Portfolio">
-<meta property="og:description" content="RTP Global overview: self-funded $1B fund, Datadog and Miro backer, global early-stage investing and how to break in.">
+<meta property="og:description" content="RTP Global overview: self-funded $1B fund, Datadog and Miro backer, how to break in.">
 <meta property="og:url" content="https://buysideschool.org/blog/rtp-global">
 <meta property="og:type" content="article">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -19,7 +19,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Why RTP Global: Interviews, Careers, & Portfolio",
-  "description": "RTP Global overview: self-funded $1B fund, Datadog and Miro backer, global early-stage investing and how to break in.",
+  "description": "RTP Global overview: self-funded $1B fund, Datadog and Miro backer, how to break in.",
   "url": "https://buysideschool.org/blog/rtp-global",
   "datePublished": "2025-04-17",
   "dateModified": "2025-04-17",
@@ -37,8 +37,10 @@
 <style>
   :root { --bg:#FAFAF8; --fg:#1A1A1A; --muted:#7A7A7A; --highlight:#2D5BFF; --highlight-soft:rgba(45,91,255,0.06); --card-bg:#FFFFFF; --border:#E8E8E4; --navy:#0B1D3A; }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'DM Sans',-apple-system,sans-serif; background:var(--bg); color:var(--fg); -webkit-font-smoothing:antialiased; line-height:1.6; }
-  .container { max-width:1080px; margin:0 auto; padding:0 40px; }
+  body { font-family:'DM Sans',-apple-system,sans-serif; background:var(--bg); color:var(--fg); -webkit-font-smoothing:antialiased; line-height:1.7; }
+  .container { max-width:1100px; margin:0 auto; padding:0 40px; }
+
+  /* NAV */
   .top-nav { position:sticky; top:0; z-index:50; background:rgba(250,250,248,0.92); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
   .top-nav .container { display:flex; justify-content:space-between; align-items:center; padding-top:14px; padding-bottom:14px; }
   .nav-logo { font-family:'Instrument Serif',serif; font-size:1.15rem; color:var(--fg); text-decoration:none; }
@@ -46,49 +48,75 @@
   .nav-item { position:relative; display:flex; align-items:center; }
   .nav-item:hover .dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
   .nav-link { font-size:0.82rem; color:var(--muted); cursor:default; }
-  .dropdown { position:absolute; top:calc(100% + 12px); left:50%; transform:translateX(-50%) translateY(6px); background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,0.08); padding:8px; min-width:220px; opacity:0; visibility:hidden; transition:opacity 0.15s ease,transform 0.15s ease,visibility 0.15s; z-index:100; }
+  .dropdown { position:absolute; top:calc(100% + 12px); left:50%; transform:translateX(-50%) translateY(6px); background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,0.08); padding:8px; min-width:220px; opacity:0; visibility:hidden; transition:all 0.15s ease; z-index:100; }
   .dropdown-link { display:block; font-size:0.82rem; color:var(--fg); text-decoration:none; padding:8px 12px; border-radius:6px; transition:background 0.15s; }
   .dropdown-link:hover { background:var(--highlight-soft); color:var(--highlight); }
-  .article-layout { display:grid; grid-template-columns:1fr 280px; gap:64px; padding:56px 0 80px; align-items:start; }
-  .breadcrumb { font-size:0.78rem; color:var(--muted); margin-bottom:24px; display:flex; align-items:center; gap:8px; }
+
+  /* LAYOUT */
+  .page-layout { display:grid; grid-template-columns:1fr 220px; gap:72px; padding:48px 0 80px; align-items:start; }
+
+  /* HEADER */
+  .breadcrumb { font-size:0.78rem; color:var(--muted); margin-bottom:32px; }
   .breadcrumb a { color:var(--muted); text-decoration:none; }
   .breadcrumb a:hover { color:var(--highlight); }
-  .article-type { font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--highlight); margin-bottom:12px; }
-  .article-title { font-family:'Instrument Serif',serif; font-size:clamp(1.6rem,3vw,2.2rem); font-weight:400; line-height:1.2; color:var(--navy); margin-bottom:16px; }
-  .article-meta { font-size:0.78rem; color:var(--muted); margin-bottom:40px; padding-bottom:32px; border-bottom:1px solid var(--border); }
-  .article-body h2 { font-family:'Instrument Serif',serif; font-size:1.35rem; font-weight:400; color:var(--navy); margin:40px 0 14px; padding-top:40px; border-top:1px solid var(--border); }
-  .article-body h2:first-child { margin-top:0; padding-top:0; border-top:none; }
-  .article-body p { font-size:0.95rem; line-height:1.75; color:var(--fg); margin-bottom:16px; }
-  .article-body a { color:var(--highlight); text-decoration:none; border-bottom:1px solid rgba(45,91,255,0.25); }
-  .article-body a:hover { border-color:var(--highlight); }
+  .firm-header { display:flex; align-items:center; gap:20px; margin-bottom:8px; }
+  .firm-logo-sm { width:48px; height:48px; border-radius:10px; border:1px solid var(--border); background:#fff; padding:6px; object-fit:contain; }
+  .article-type { font-size:0.68rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--highlight); }
+  h1 { font-family:'Instrument Serif',serif; font-size:clamp(1.7rem,3vw,2.3rem); font-weight:400; line-height:1.2; color:var(--navy); margin:12px 0 6px; }
+  .article-meta { font-size:0.78rem; color:var(--muted); margin-bottom:32px; }
+  .quick-stats { display:flex; flex-wrap:wrap; gap:24px; padding:20px 24px; background:var(--card-bg); border:1px solid var(--border); border-radius:8px; margin-bottom:48px; }
+  .quick-stat { display:flex; flex-direction:column; gap:2px; }
+  .quick-stat-label { font-size:0.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+  .quick-stat-value { font-size:0.88rem; font-weight:500; }
+
+  /* CONTENT */
+  .content h2 { font-family:'Instrument Serif',serif; font-size:1.4rem; font-weight:400; color:var(--navy); margin:48px 0 16px; padding-top:32px; border-top:1px solid var(--border); }
+  .content h2:first-child { margin-top:0; padding-top:0; border-top:none; }
+  .content p { font-size:0.94rem; line-height:1.8; margin-bottom:16px; }
+  .content a { color:var(--highlight); text-decoration:none; border-bottom:1px solid rgba(45,91,255,0.2); }
+  .content a:hover { border-color:var(--highlight); }
+  .content strong { font-weight:600; }
+
+  /* TEAM */
   .team-list { list-style:none; margin:0 0 16px; }
-  .team-list li { font-size:0.92rem; padding:12px 0; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:baseline; gap:16px; }
+  .team-list li { font-size:0.9rem; padding:12px 0; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:baseline; gap:16px; }
   .team-list li:last-child { border-bottom:none; }
   .team-name { font-weight:500; }
-  .team-role { font-size:0.8rem; color:var(--muted); }
-  .team-links { display:flex; gap:10px; font-size:0.75rem; flex-shrink:0; }
+  .team-role { font-size:0.78rem; color:var(--muted); }
+  .team-links { display:flex; gap:10px; font-size:0.73rem; flex-shrink:0; }
   .team-links a { color:var(--highlight); text-decoration:none; border-bottom:none; }
+
+  /* PORTFOLIO */
   .portfolio-grid { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
-  .portfolio-tag { font-size:0.8rem; padding:5px 12px; border-radius:4px; border:1px solid var(--border); color:var(--fg); text-decoration:none; background:var(--card-bg); transition:all 0.15s; border-bottom:none; }
+  .portfolio-tag { font-size:0.8rem; padding:5px 14px; border-radius:4px; border:1px solid var(--border); color:var(--fg); text-decoration:none; background:var(--card-bg); transition:all 0.15s; border-bottom:none; }
   .portfolio-tag:hover { border-color:var(--highlight); color:var(--highlight); background:var(--highlight-soft); }
-  .sidebar { position:sticky; top:80px; }
-  .sidebar-card { background:var(--card-bg); border:1px solid var(--border); border-radius:8px; padding:24px; margin-bottom:20px; }
-  .sidebar-label { font-size:0.68rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
-  .sidebar-stat { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; border-bottom:1px solid var(--border); font-size:0.82rem; }
-  .sidebar-stat:last-child { border-bottom:none; }
-  .sidebar-stat-label { color:var(--muted); }
-  .sidebar-stat-value { font-weight:500; }
-  .firm-logo-header { width:64px; height:64px; margin-bottom:20px; }
-  .firm-logo-header img { width:100%; height:100%; object-fit:contain; border-radius:12px; border:1px solid var(--border); background:#fff; padding:8px; }
-  .related-firms { margin-top:48px; padding-top:40px; border-top:1px solid var(--border); }
-  .related-firms h3 { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--navy); margin-bottom:16px; }
+
+  /* TOC SIDEBAR */
+  .toc { position:sticky; top:80px; }
+  .toc-label { font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+  .toc-list { list-style:none; }
+  .toc-list li { margin-bottom:0; }
+  .toc-list a { font-size:0.78rem; color:var(--muted); text-decoration:none; display:block; padding:6px 0 6px 12px; border-left:2px solid transparent; transition:all 0.15s; line-height:1.4; }
+  .toc-list a:hover { color:var(--highlight); border-left-color:var(--highlight); }
+  .toc-list a.active { color:var(--highlight); border-left-color:var(--highlight); font-weight:500; }
+
+  /* RELATED */
+  .related-section { margin-top:48px; padding-top:40px; border-top:1px solid var(--border); }
+  .related-section h3 { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--navy); margin-bottom:16px; }
   .related-links { display:flex; flex-wrap:wrap; gap:10px; }
   .related-link { font-size:0.82rem; padding:8px 16px; border:1px solid var(--border); border-radius:6px; text-decoration:none; color:var(--fg); background:var(--card-bg); transition:all 0.15s; }
   .related-link:hover { border-color:var(--highlight); color:var(--highlight); background:var(--highlight-soft); }
-  footer { border-top:1px solid var(--border); padding:40px 0; }
+
+  footer { border-top:1px solid var(--border); padding:40px 0; margin-top:0; }
   footer p { font-size:0.8rem; color:var(--muted); }
   footer a { color:var(--muted); text-decoration:none; }
-  @media (max-width:768px) { .container { padding:0 20px; } .article-layout { grid-template-columns:1fr; gap:40px; } .sidebar { position:static; } }
+
+  @media (max-width:768px) {
+    .container { padding:0 20px; }
+    .page-layout { grid-template-columns:1fr; gap:40px; }
+    .toc { position:static; order:-1; padding:16px 20px; background:var(--card-bg); border:1px solid var(--border); border-radius:8px; }
+    .quick-stats { gap:16px; }
+  }
 </style>
 </head>
 <body>
@@ -107,50 +135,44 @@
   </div>
 </nav>
 <div class="container">
-  <div class="article-layout">
+  <div class="page-layout">
     <main>
-      <div class="breadcrumb"><a href="/blog">Firms</a><span>/</span>RTP Global</div>
-      <div class="firm-logo-header"><img src="https://logo.clearbit.com/rtp.vc" alt="" onerror="this.style.display='none'"></div><div class="article-type">Venture Capital</div><h1 class="article-title">Why RTP Global: Interviews, Careers, & Portfolio</h1><div class="article-meta">Last updated April 2025</div><div class="article-body">
-<h2>Overview</h2>
-<p>RTP Global is one of the most distinctive venture firms in Europe. Originally founded as ru-Net in 2000, the firm operates as a self-funded VC — it does not raise from external LPs but reinvests proceeds from past exits including Datadog (IPO 2019 at $9B+), Delivery Hero, and SumUp. This gives RTP unusual flexibility and long-term alignment with founders that traditional fund structures cannot match.</p>
-<p>Fund IV closed at $1B — split between $660M for early-stage investments and $340M for follow-on support to breakout portfolio companies. The firm has quadrupled its headcount since 2020 and now operates from five offices across four continents: London, New York, Paris, Bangalore, and Dubai. Its investment focus is global but particularly strong in Europe, India, and emerging markets.</p>
-<p>The self-funded structure is genuinely different. Most VC firms operate under pressure from their LPs to return capital within a fixed fund lifecycle — typically 10 years. RTP has no such constraint. The firm can hold positions indefinitely, follow on aggressively into winners, and take risks that LP-backed funds would struggle to justify. For founders, this means a partner who is never forced to sell.</p>
-
-<h2>Key People</h2>
-<ul class="team-list">
-  <li><div><div class="team-name">Dmitry Alimov</div><div class="team-role">Managing Partner</div></div><div class="team-links"><a href="https://www.linkedin.com/in/dalimov/" target="_blank">LinkedIn</a></div></li>
-  <li><div><div class="team-name">Galina Chifina</div><div class="team-role">Managing Partner</div></div><div class="team-links"><a href="https://www.linkedin.com/in/galinachifina/" target="_blank">LinkedIn</a></div></li>
-  <li><div><div class="team-name">Gareth Jefferies</div><div class="team-role">Partner, London</div></div><div class="team-links"><a href="https://www.linkedin.com/in/garethjefferies/" target="_blank">LinkedIn</a></div></li>
-  <li><div><div class="team-name">Thomas Cuvelier</div><div class="team-role">Partner</div></div><div class="team-links"><a href="https://www.linkedin.com/in/thomascuvelier/" target="_blank">LinkedIn</a></div></li>
-  <li><div><div class="team-name">Jelmer De Jong</div><div class="team-role">Partner</div></div><div class="team-links"><a href="https://www.linkedin.com/in/jelmerdejong/" target="_blank">LinkedIn</a></div></li>
-</ul>
-
-<h2>Notable Portfolio</h2>
-<div class="portfolio-grid">
-  <a href="https://www.crunchbase.com/organization/datadog" class="portfolio-tag" target="_blank">Datadog</a>
-  <a href="https://www.crunchbase.com/organization/delivery-hero" class="portfolio-tag" target="_blank">Delivery Hero</a>
-  <a href="https://www.crunchbase.com/organization/realtimeboard" class="portfolio-tag" target="_blank">Miro</a>
-  <a href="https://www.crunchbase.com/organization/qonto" class="portfolio-tag" target="_blank">Qonto</a>
-  <a href="https://www.crunchbase.com/organization/picsart" class="portfolio-tag" target="_blank">Picsart</a>
-  <a href="https://www.crunchbase.com/organization/dbt-labs" class="portfolio-tag" target="_blank">dbt Labs</a>
-  <a href="https://www.crunchbase.com/organization/cred-2" class="portfolio-tag" target="_blank">Cred</a>
-</div>
-<p>329 investments. Datadog's IPO remains one of the standout early-stage VC returns.</p>
-
-<h2>Careers at RTP Global</h2>
-<p>RTP Global has a team of 39 including 15 partners. The London office is the European hub and primary hiring location for Europe-focused roles. The firm hires analysts and associates and has grown rapidly — the team has quadrupled since 2020, meaning there is an active pipeline of junior roles.</p>
-<p>Given RTP's self-funded structure and global mandate, candidates who understand multiple geographies — particularly Europe, India, or emerging markets — are valued. The firm invests across a wide range of sectors with particular strength in B2B SaaS, fintech, AI, and e-commerce. Direct outreach to London-based partners is a credible approach. Engage with RTP's portfolio and content to build a genuine starting point for conversation.</p>
-</div>
-      <div class="related-firms">
+      <div class="breadcrumb"><a href="/blog">Fund Profiles</a> / RTP Global</div>
+      <div class="firm-header">
+        <img class="firm-logo-sm" src="https://logo.clearbit.com/rtp.vc" alt="" onerror="this.style.display='none'">
+        <div class="article-type">Venture Capital</div>
+      </div>
+      <h1>Why RTP Global: Interviews, Careers, & Portfolio</h1>
+      <div class="article-meta">Last updated April 2025</div>
+      <div class="quick-stats"><div class="quick-stat"><span class="quick-stat-label">Founded</span><span class="quick-stat-value">2000</span></div><div class="quick-stat"><span class="quick-stat-label">HQ</span><span class="quick-stat-value">London</span></div><div class="quick-stat"><span class="quick-stat-label">AUM</span><span class="quick-stat-value">$1B+ (Fund IV)</span></div><div class="quick-stat"><span class="quick-stat-label">Stage</span><span class="quick-stat-value">Seed to Series B</span></div><div class="quick-stat"><span class="quick-stat-label">Team</span><span class="quick-stat-value">39</span></div></div>
+      <div class="content" id="article-content">
+        <h2 id="overview">RTP Global Overview</h2><p>RTP Global is one of the most distinctive venture firms in Europe. Originally ru-Net (founded 2000), the firm operates as a self-funded VC — reinvesting proceeds from exits like Datadog (IPO 2019, $9B+), Delivery Hero, and SumUp rather than raising from external LPs. This gives RTP unusual flexibility: no LP pressure, no fixed fund lifecycle, no forced exits.</p>
+<h2 id="aum">RTP Global AUM</h2><p>Fund IV closed at $1B — $660M for early-stage and $340M for follow-ons. The firm has quadrupled headcount since 2020 across London, New York, Paris, Bangalore, and Dubai. 329 investments over 15+ years.</p>
+<h2 id="team">RTP Global Key People</h2><ul class="team-list"><li><div><div class="team-name">Dmitry Alimov</div><div class="team-role">Managing Partner</div></div><div class="team-links"><a href="https://www.linkedin.com/in/dalimov/" target="_blank">LinkedIn</a></div></li><li><div><div class="team-name">Galina Chifina</div><div class="team-role">Managing Partner</div></div><div class="team-links"><a href="https://www.linkedin.com/in/galinachifina/" target="_blank">LinkedIn</a></div></li><li><div><div class="team-name">Gareth Jefferies</div><div class="team-role">Partner, London</div></div><div class="team-links"><a href="https://www.linkedin.com/in/garethjefferies/" target="_blank">LinkedIn</a></div></li></ul>
+<h2 id="portfolio">RTP Global Portfolio</h2><div class="portfolio-grid"><a href="https://www.crunchbase.com/organization/datadog" class="portfolio-tag" target="_blank">Datadog</a><a href="https://www.crunchbase.com/organization/delivery-hero" class="portfolio-tag" target="_blank">Delivery Hero</a><a href="https://www.crunchbase.com/organization/realtimeboard" class="portfolio-tag" target="_blank">Miro</a><a href="https://www.crunchbase.com/organization/qonto" class="portfolio-tag" target="_blank">Qonto</a><a href="https://www.crunchbase.com/organization/picsart" class="portfolio-tag" target="_blank">Picsart</a><a href="https://www.crunchbase.com/organization/dbt-labs" class="portfolio-tag" target="_blank">dbt Labs</a></div>
+<h2 id="careers">RTP Global Careers</h2><p>Team of 39 including 15 partners. London is the European hub. The team has quadrupled since 2020, meaning active junior hiring. Candidates who understand multiple geographies — Europe, India, emerging markets — are valued. Direct outreach to London-based partners is a credible approach.</p>
+      </div>
+      <div class="related-section">
         <h3>Explore other fund profiles</h3>
         <div class="related-links"><a href="/blog/index-ventures" class="related-link">Index Ventures</a><a href="/blog/balderton" class="related-link">Balderton Capital</a><a href="/blog/lakestar" class="related-link">Lakestar</a></div>
       </div>
     </main>
-    <aside class="sidebar">
-      <div class="sidebar-card"><div class="sidebar-label">Fund Overview</div><div class="sidebar-stat"><span class="sidebar-stat-label">Founded</span><span class="sidebar-stat-value">2000</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">HQ</span><span class="sidebar-stat-value">London</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">AUM</span><span class="sidebar-stat-value">$1B+ (Fund IV)</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">Stage</span><span class="sidebar-stat-value">Seed to Series B</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">Team</span><span class="sidebar-stat-value">39</span></div></div><div class="sidebar-card"><div class="sidebar-label">Recruiting</div><div class="sidebar-stat"><span class="sidebar-stat-label">Cycle</span><span class="sidebar-stat-value">Off-cycle</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">Junior roles</span><span class="sidebar-stat-value">Yes</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">Format</span><span class="sidebar-stat-value">Direct outreach</span></div></div>
+    <aside>
+      <nav class="toc">
+        <div class="toc-label">On This Page</div>
+        <ul class="toc-list">
+          <li><a href="#overview">Overview</a></li><li><a href="#aum">AUM</a></li><li><a href="#team">Key People</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#careers">Careers</a></li>
+        </ul>
+      </nav>
     </aside>
   </div>
 </div>
 <footer><div class="container"><p><a href="/blog">← Back to all firms</a> · © 2026 Buyside School</p></div></footer>
+<script>
+const toc=document.querySelectorAll('.toc-list a');
+const sections=[];
+toc.forEach(a=>{const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el)sections.push({el,a});});
+window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(s.el.getBoundingClientRect().top<120)cur=s.a.getAttribute('href');});toc.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')===cur);});});
+</script>
 </body>
 </html>
