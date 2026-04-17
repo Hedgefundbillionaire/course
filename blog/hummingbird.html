@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Why Hummingbird Ventures: Interviews, Careers, & Portfolio | Buyside School</title>
-<meta name="description" content="Hummingbird Ventures overview: $500M+ AUM, contrarian early-stage investing, Deliveroo and Kraken backer.">
+<meta name="description" content="Hummingbird Ventures overview: contrarian early-stage investing, Deliveroo and Kraken backer.">
 <meta property="og:title" content="Why Hummingbird Ventures: Interviews, Careers, & Portfolio">
-<meta property="og:description" content="Hummingbird Ventures overview: $500M+ AUM, contrarian early-stage investing, Deliveroo and Kraken backer.">
+<meta property="og:description" content="Hummingbird Ventures overview: contrarian early-stage investing, Deliveroo and Kraken backer.">
 <meta property="og:url" content="https://buysideschool.org/blog/hummingbird">
 <meta property="og:type" content="article">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -19,7 +19,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Why Hummingbird Ventures: Interviews, Careers, & Portfolio",
-  "description": "Hummingbird Ventures overview: $500M+ AUM, contrarian early-stage investing, Deliveroo and Kraken backer.",
+  "description": "Hummingbird Ventures overview: contrarian early-stage investing, Deliveroo and Kraken backer.",
   "url": "https://buysideschool.org/blog/hummingbird",
   "datePublished": "2025-04-17",
   "dateModified": "2025-04-17",
@@ -37,8 +37,10 @@
 <style>
   :root { --bg:#FAFAF8; --fg:#1A1A1A; --muted:#7A7A7A; --highlight:#2D5BFF; --highlight-soft:rgba(45,91,255,0.06); --card-bg:#FFFFFF; --border:#E8E8E4; --navy:#0B1D3A; }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'DM Sans',-apple-system,sans-serif; background:var(--bg); color:var(--fg); -webkit-font-smoothing:antialiased; line-height:1.6; }
-  .container { max-width:1080px; margin:0 auto; padding:0 40px; }
+  body { font-family:'DM Sans',-apple-system,sans-serif; background:var(--bg); color:var(--fg); -webkit-font-smoothing:antialiased; line-height:1.7; }
+  .container { max-width:1100px; margin:0 auto; padding:0 40px; }
+
+  /* NAV */
   .top-nav { position:sticky; top:0; z-index:50; background:rgba(250,250,248,0.92); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
   .top-nav .container { display:flex; justify-content:space-between; align-items:center; padding-top:14px; padding-bottom:14px; }
   .nav-logo { font-family:'Instrument Serif',serif; font-size:1.15rem; color:var(--fg); text-decoration:none; }
@@ -46,49 +48,75 @@
   .nav-item { position:relative; display:flex; align-items:center; }
   .nav-item:hover .dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
   .nav-link { font-size:0.82rem; color:var(--muted); cursor:default; }
-  .dropdown { position:absolute; top:calc(100% + 12px); left:50%; transform:translateX(-50%) translateY(6px); background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,0.08); padding:8px; min-width:220px; opacity:0; visibility:hidden; transition:opacity 0.15s ease,transform 0.15s ease,visibility 0.15s; z-index:100; }
+  .dropdown { position:absolute; top:calc(100% + 12px); left:50%; transform:translateX(-50%) translateY(6px); background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,0.08); padding:8px; min-width:220px; opacity:0; visibility:hidden; transition:all 0.15s ease; z-index:100; }
   .dropdown-link { display:block; font-size:0.82rem; color:var(--fg); text-decoration:none; padding:8px 12px; border-radius:6px; transition:background 0.15s; }
   .dropdown-link:hover { background:var(--highlight-soft); color:var(--highlight); }
-  .article-layout { display:grid; grid-template-columns:1fr 280px; gap:64px; padding:56px 0 80px; align-items:start; }
-  .breadcrumb { font-size:0.78rem; color:var(--muted); margin-bottom:24px; display:flex; align-items:center; gap:8px; }
+
+  /* LAYOUT */
+  .page-layout { display:grid; grid-template-columns:1fr 220px; gap:72px; padding:48px 0 80px; align-items:start; }
+
+  /* HEADER */
+  .breadcrumb { font-size:0.78rem; color:var(--muted); margin-bottom:32px; }
   .breadcrumb a { color:var(--muted); text-decoration:none; }
   .breadcrumb a:hover { color:var(--highlight); }
-  .article-type { font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--highlight); margin-bottom:12px; }
-  .article-title { font-family:'Instrument Serif',serif; font-size:clamp(1.6rem,3vw,2.2rem); font-weight:400; line-height:1.2; color:var(--navy); margin-bottom:16px; }
-  .article-meta { font-size:0.78rem; color:var(--muted); margin-bottom:40px; padding-bottom:32px; border-bottom:1px solid var(--border); }
-  .article-body h2 { font-family:'Instrument Serif',serif; font-size:1.35rem; font-weight:400; color:var(--navy); margin:40px 0 14px; padding-top:40px; border-top:1px solid var(--border); }
-  .article-body h2:first-child { margin-top:0; padding-top:0; border-top:none; }
-  .article-body p { font-size:0.95rem; line-height:1.75; color:var(--fg); margin-bottom:16px; }
-  .article-body a { color:var(--highlight); text-decoration:none; border-bottom:1px solid rgba(45,91,255,0.25); }
-  .article-body a:hover { border-color:var(--highlight); }
+  .firm-header { display:flex; align-items:center; gap:20px; margin-bottom:8px; }
+  .firm-logo-sm { width:48px; height:48px; border-radius:10px; border:1px solid var(--border); background:#fff; padding:6px; object-fit:contain; }
+  .article-type { font-size:0.68rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--highlight); }
+  h1 { font-family:'Instrument Serif',serif; font-size:clamp(1.7rem,3vw,2.3rem); font-weight:400; line-height:1.2; color:var(--navy); margin:12px 0 6px; }
+  .article-meta { font-size:0.78rem; color:var(--muted); margin-bottom:32px; }
+  .quick-stats { display:flex; flex-wrap:wrap; gap:24px; padding:20px 24px; background:var(--card-bg); border:1px solid var(--border); border-radius:8px; margin-bottom:48px; }
+  .quick-stat { display:flex; flex-direction:column; gap:2px; }
+  .quick-stat-label { font-size:0.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+  .quick-stat-value { font-size:0.88rem; font-weight:500; }
+
+  /* CONTENT */
+  .content h2 { font-family:'Instrument Serif',serif; font-size:1.4rem; font-weight:400; color:var(--navy); margin:48px 0 16px; padding-top:32px; border-top:1px solid var(--border); }
+  .content h2:first-child { margin-top:0; padding-top:0; border-top:none; }
+  .content p { font-size:0.94rem; line-height:1.8; margin-bottom:16px; }
+  .content a { color:var(--highlight); text-decoration:none; border-bottom:1px solid rgba(45,91,255,0.2); }
+  .content a:hover { border-color:var(--highlight); }
+  .content strong { font-weight:600; }
+
+  /* TEAM */
   .team-list { list-style:none; margin:0 0 16px; }
-  .team-list li { font-size:0.92rem; padding:12px 0; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:baseline; gap:16px; }
+  .team-list li { font-size:0.9rem; padding:12px 0; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:baseline; gap:16px; }
   .team-list li:last-child { border-bottom:none; }
   .team-name { font-weight:500; }
-  .team-role { font-size:0.8rem; color:var(--muted); }
-  .team-links { display:flex; gap:10px; font-size:0.75rem; flex-shrink:0; }
+  .team-role { font-size:0.78rem; color:var(--muted); }
+  .team-links { display:flex; gap:10px; font-size:0.73rem; flex-shrink:0; }
   .team-links a { color:var(--highlight); text-decoration:none; border-bottom:none; }
+
+  /* PORTFOLIO */
   .portfolio-grid { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
-  .portfolio-tag { font-size:0.8rem; padding:5px 12px; border-radius:4px; border:1px solid var(--border); color:var(--fg); text-decoration:none; background:var(--card-bg); transition:all 0.15s; border-bottom:none; }
+  .portfolio-tag { font-size:0.8rem; padding:5px 14px; border-radius:4px; border:1px solid var(--border); color:var(--fg); text-decoration:none; background:var(--card-bg); transition:all 0.15s; border-bottom:none; }
   .portfolio-tag:hover { border-color:var(--highlight); color:var(--highlight); background:var(--highlight-soft); }
-  .sidebar { position:sticky; top:80px; }
-  .sidebar-card { background:var(--card-bg); border:1px solid var(--border); border-radius:8px; padding:24px; margin-bottom:20px; }
-  .sidebar-label { font-size:0.68rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
-  .sidebar-stat { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; border-bottom:1px solid var(--border); font-size:0.82rem; }
-  .sidebar-stat:last-child { border-bottom:none; }
-  .sidebar-stat-label { color:var(--muted); }
-  .sidebar-stat-value { font-weight:500; }
-  .firm-logo-header { width:64px; height:64px; margin-bottom:20px; }
-  .firm-logo-header img { width:100%; height:100%; object-fit:contain; border-radius:12px; border:1px solid var(--border); background:#fff; padding:8px; }
-  .related-firms { margin-top:48px; padding-top:40px; border-top:1px solid var(--border); }
-  .related-firms h3 { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--navy); margin-bottom:16px; }
+
+  /* TOC SIDEBAR */
+  .toc { position:sticky; top:80px; }
+  .toc-label { font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+  .toc-list { list-style:none; }
+  .toc-list li { margin-bottom:0; }
+  .toc-list a { font-size:0.78rem; color:var(--muted); text-decoration:none; display:block; padding:6px 0 6px 12px; border-left:2px solid transparent; transition:all 0.15s; line-height:1.4; }
+  .toc-list a:hover { color:var(--highlight); border-left-color:var(--highlight); }
+  .toc-list a.active { color:var(--highlight); border-left-color:var(--highlight); font-weight:500; }
+
+  /* RELATED */
+  .related-section { margin-top:48px; padding-top:40px; border-top:1px solid var(--border); }
+  .related-section h3 { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--navy); margin-bottom:16px; }
   .related-links { display:flex; flex-wrap:wrap; gap:10px; }
   .related-link { font-size:0.82rem; padding:8px 16px; border:1px solid var(--border); border-radius:6px; text-decoration:none; color:var(--fg); background:var(--card-bg); transition:all 0.15s; }
   .related-link:hover { border-color:var(--highlight); color:var(--highlight); background:var(--highlight-soft); }
-  footer { border-top:1px solid var(--border); padding:40px 0; }
+
+  footer { border-top:1px solid var(--border); padding:40px 0; margin-top:0; }
   footer p { font-size:0.8rem; color:var(--muted); }
   footer a { color:var(--muted); text-decoration:none; }
-  @media (max-width:768px) { .container { padding:0 20px; } .article-layout { grid-template-columns:1fr; gap:40px; } .sidebar { position:static; } }
+
+  @media (max-width:768px) {
+    .container { padding:0 20px; }
+    .page-layout { grid-template-columns:1fr; gap:40px; }
+    .toc { position:static; order:-1; padding:16px 20px; background:var(--card-bg); border:1px solid var(--border); border-radius:8px; }
+    .quick-stats { gap:16px; }
+  }
 </style>
 </head>
 <body>
@@ -107,50 +135,44 @@
   </div>
 </nav>
 <div class="container">
-  <div class="article-layout">
+  <div class="page-layout">
     <main>
-      <div class="breadcrumb"><a href="/blog">Firms</a><span>/</span>Hummingbird Ventures</div>
-      <div class="firm-logo-header"><img src="https://logo.clearbit.com/hummingbird.vc" alt="" onerror="this.style.display='none'"></div><div class="article-type">Venture Capital</div><h1 class="article-title">Why Hummingbird Ventures: Interviews, Careers, & Portfolio</h1><div class="article-meta">Last updated April 2025</div><div class="article-body">
-<h2>Overview</h2>
-<p>Hummingbird Ventures bets on founders when it is not obvious. Founded by Barend Sears, the firm operates with no geographic or sector constraints — backing outlier founders globally from pre-seed through Series A. The team is deliberately small and partner-heavy, with each investment getting deep involvement from the partners.</p>
-<p>The portfolio reflects this contrarian approach. Hummingbird was an early backer of Deliveroo (when food delivery was considered a low-margin commodity business), Kraken (when crypto exchanges were considered niche), and Lovable (an AI coding tool that reached unicorn status in 2025). The common thread is not a sector thesis but a pattern of finding founders who are building something that the consensus has not yet recognized.</p>
-<p>Mario Gabriele — partner at Hummingbird and founder of The Generalist, one of the most widely read newsletters in venture — joined in 2023. His addition brought content creation and community building into the firm's DNA. The Generalist reaches hundreds of thousands of readers weekly and gives Hummingbird unusual visibility for a firm of its size.</p>
-
-<h2>Key People</h2>
-<ul class="team-list">
-  <li><div><div class="team-name">Barend Sears</div><div class="team-role">Founder</div></div><div class="team-links"><a href="https://www.linkedin.com/in/barendsears/" target="_blank">LinkedIn</a></div></li>
-  <li><div><div class="team-name">Firat Ileri</div><div class="team-role">Managing Partner</div></div><div class="team-links"><a href="https://www.linkedin.com/in/firatileri/" target="_blank">LinkedIn</a></div></li>
-  <li><div><div class="team-name">Mario Gabriele</div><div class="team-role">Partner & Founder of The Generalist</div></div><div class="team-links"><a href="https://www.linkedin.com/in/mariogabriele/" target="_blank">LinkedIn</a></div></li>
-  <li><div><div class="team-name">Lukas Prochazka</div><div class="team-role">Partner</div></div><div class="team-links"><a href="https://www.linkedin.com/in/lukasprochazka/" target="_blank">LinkedIn</a></div></li>
-</ul>
-
-<h2>Notable Portfolio</h2>
-<div class="portfolio-grid">
-  <a href="https://www.crunchbase.com/organization/kraken" class="portfolio-tag" target="_blank">Kraken</a>
-  <a href="https://www.crunchbase.com/organization/deliveroo" class="portfolio-tag" target="_blank">Deliveroo</a>
-  <a href="https://www.crunchbase.com/organization/showpad" class="portfolio-tag" target="_blank">Showpad</a>
-  <a href="https://www.crunchbase.com/organization/billiontoone" class="portfolio-tag" target="_blank">BillionToOne</a>
-  <a href="https://www.crunchbase.com/organization/lovable" class="portfolio-tag" target="_blank">Lovable</a>
-</div>
-<p>6 unicorns. $500M+ AUM.</p>
-
-<h2>Interview Process at Hummingbird</h2>
-<p>Hummingbird's process is relationship-driven. There is no formal case study or rigid interview sequence. Instead, expect multiple conversations with different partners over time, each exploring how you think about founders, markets, and non-consensus opportunities. The team is small enough that every hire is a significant decision.</p>
-<p>Discussions focus on your past experience, how you evaluate founders with no revenue and no product, and your genuine views on where the market is wrong. Hummingbird is looking for people who can identify outliers — if you can only evaluate companies through conventional frameworks, this is not the right firm.</p>
-
-<h2>Careers at Hummingbird</h2>
-<p>Hummingbird does not publicly market junior positions. The team is small and hires through the network. Engage with their content — particularly The Generalist — reach out directly to partners, and build a point of view on the kind of outlier founders they back. If you can articulate a non-obvious investment thesis that the firm has not yet seen, you will get a conversation.</p>
-</div>
-      <div class="related-firms">
+      <div class="breadcrumb"><a href="/blog">Fund Profiles</a> / Hummingbird Ventures</div>
+      <div class="firm-header">
+        <img class="firm-logo-sm" src="https://logo.clearbit.com/hummingbird.vc" alt="" onerror="this.style.display='none'">
+        <div class="article-type">Venture Capital</div>
+      </div>
+      <h1>Why Hummingbird Ventures: Interviews, Careers, & Portfolio</h1>
+      <div class="article-meta">Last updated April 2025</div>
+      <div class="quick-stats"><div class="quick-stat"><span class="quick-stat-label">Founded</span><span class="quick-stat-value">2010</span></div><div class="quick-stat"><span class="quick-stat-label">HQ</span><span class="quick-stat-value">London</span></div><div class="quick-stat"><span class="quick-stat-label">AUM</span><span class="quick-stat-value">$500M+</span></div><div class="quick-stat"><span class="quick-stat-label">Stage</span><span class="quick-stat-value">Pre-seed to Series A</span></div></div>
+      <div class="content" id="article-content">
+        <h2 id="overview">Hummingbird Ventures Overview</h2><p>Hummingbird bets on founders when it is not obvious. Founded by Barend Sears, the firm operates with no geographic or sector constraints. The portfolio reflects a contrarian approach: early backer of Deliveroo (when food delivery was considered low-margin), Kraken (when crypto was considered niche), and Lovable (AI coding, unicorn in 2025). Mario Gabriele — founder of The Generalist newsletter — joined as a partner in 2023.</p>
+<h2 id="team">Hummingbird Key People</h2><ul class="team-list"><li><div><div class="team-name">Barend Sears</div><div class="team-role">Founder</div></div><div class="team-links"><a href="https://www.linkedin.com/in/barendsears/" target="_blank">LinkedIn</a></div></li><li><div><div class="team-name">Mario Gabriele</div><div class="team-role">Partner & Founder of The Generalist</div></div><div class="team-links"><a href="https://www.linkedin.com/in/mariogabriele/" target="_blank">LinkedIn</a></div></li></ul>
+<h2 id="portfolio">Hummingbird Portfolio</h2><div class="portfolio-grid"><a href="https://www.crunchbase.com/organization/kraken" class="portfolio-tag" target="_blank">Kraken</a><a href="https://www.crunchbase.com/organization/deliveroo" class="portfolio-tag" target="_blank">Deliveroo</a><a href="https://www.crunchbase.com/organization/lovable" class="portfolio-tag" target="_blank">Lovable</a><a href="https://www.crunchbase.com/organization/showpad" class="portfolio-tag" target="_blank">Showpad</a></div><p>6 unicorns.</p>
+<h2 id="interviews">Hummingbird Interview Process</h2><p>Relationship-driven. No formal case study or rigid sequence. Multiple conversations with different partners exploring how you think about founders, markets, and non-consensus opportunities. If you can only evaluate companies through conventional frameworks, this is not the right firm.</p>
+<h2 id="careers">Hummingbird Careers</h2><p>No publicly marketed positions. The team is small and hires through the network. Engage with The Generalist, reach out to partners, and build a point of view on outlier founders.</p>
+      </div>
+      <div class="related-section">
         <h3>Explore other fund profiles</h3>
-        <div class="related-links"><a href="/blog/seedcamp" class="related-link">Seedcamp</a><a href="/blog/phoenix-court" class="related-link">Phoenix Court / LocalGlobe</a><a href="/blog/20vc" class="related-link">20VC</a></div>
+        <div class="related-links"><a href="/blog/seedcamp" class="related-link">Seedcamp</a><a href="/blog/phoenix-court" class="related-link">Phoenix Court</a><a href="/blog/20vc" class="related-link">20VC</a></div>
       </div>
     </main>
-    <aside class="sidebar">
-      <div class="sidebar-card"><div class="sidebar-label">Fund Overview</div><div class="sidebar-stat"><span class="sidebar-stat-label">Founded</span><span class="sidebar-stat-value">2010</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">HQ</span><span class="sidebar-stat-value">London</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">AUM</span><span class="sidebar-stat-value">$500M+</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">Stage</span><span class="sidebar-stat-value">Pre-seed to Series A</span></div></div><div class="sidebar-card"><div class="sidebar-label">Recruiting</div><div class="sidebar-stat"><span class="sidebar-stat-label">Cycle</span><span class="sidebar-stat-value">Off-cycle</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">Junior roles</span><span class="sidebar-stat-value">Network only</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">Format</span><span class="sidebar-stat-value">Relationship-driven</span></div></div>
+    <aside>
+      <nav class="toc">
+        <div class="toc-label">On This Page</div>
+        <ul class="toc-list">
+          <li><a href="#overview">Overview</a></li><li><a href="#team">Key People</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#interviews">Interview Process</a></li><li><a href="#careers">Careers</a></li>
+        </ul>
+      </nav>
     </aside>
   </div>
 </div>
 <footer><div class="container"><p><a href="/blog">← Back to all firms</a> · © 2026 Buyside School</p></div></footer>
+<script>
+const toc=document.querySelectorAll('.toc-list a');
+const sections=[];
+toc.forEach(a=>{const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el)sections.push({el,a});});
+window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(s.el.getBoundingClientRect().top<120)cur=s.a.getAttribute('href');});toc.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')===cur);});});
+</script>
 </body>
 </html>
