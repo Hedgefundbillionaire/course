@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Why Norrsken VC: Interviews, Careers, & Portfolio | Buyside School</title>
-<meta name="description" content="Norrsken VC overview: €320M impact fund, Einride and 1KOMMA5° backer, SFDR Article 9, how to break in.">
+<meta name="description" content="Norrsken VC overview: €320M impact fund, Einride and 1KOMMA5° backer, how to break in.">
 <meta property="og:title" content="Why Norrsken VC: Interviews, Careers, & Portfolio">
-<meta property="og:description" content="Norrsken VC overview: €320M impact fund, Einride and 1KOMMA5° backer, SFDR Article 9, how to break in.">
+<meta property="og:description" content="Norrsken VC overview: €320M impact fund, Einride and 1KOMMA5° backer, how to break in.">
 <meta property="og:url" content="https://buysideschool.org/blog/norrsken">
 <meta property="og:type" content="article">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -19,7 +19,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Why Norrsken VC: Interviews, Careers, & Portfolio",
-  "description": "Norrsken VC overview: \u20ac320M impact fund, Einride and 1KOMMA5\u00b0 backer, SFDR Article 9, how to break in.",
+  "description": "Norrsken VC overview: \u20ac320M impact fund, Einride and 1KOMMA5\u00b0 backer, how to break in.",
   "url": "https://buysideschool.org/blog/norrsken",
   "datePublished": "2025-04-17",
   "dateModified": "2025-04-17",
@@ -37,8 +37,10 @@
 <style>
   :root { --bg:#FAFAF8; --fg:#1A1A1A; --muted:#7A7A7A; --highlight:#2D5BFF; --highlight-soft:rgba(45,91,255,0.06); --card-bg:#FFFFFF; --border:#E8E8E4; --navy:#0B1D3A; }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'DM Sans',-apple-system,sans-serif; background:var(--bg); color:var(--fg); -webkit-font-smoothing:antialiased; line-height:1.6; }
-  .container { max-width:1080px; margin:0 auto; padding:0 40px; }
+  body { font-family:'DM Sans',-apple-system,sans-serif; background:var(--bg); color:var(--fg); -webkit-font-smoothing:antialiased; line-height:1.7; }
+  .container { max-width:1100px; margin:0 auto; padding:0 40px; }
+
+  /* NAV */
   .top-nav { position:sticky; top:0; z-index:50; background:rgba(250,250,248,0.92); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
   .top-nav .container { display:flex; justify-content:space-between; align-items:center; padding-top:14px; padding-bottom:14px; }
   .nav-logo { font-family:'Instrument Serif',serif; font-size:1.15rem; color:var(--fg); text-decoration:none; }
@@ -46,49 +48,75 @@
   .nav-item { position:relative; display:flex; align-items:center; }
   .nav-item:hover .dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
   .nav-link { font-size:0.82rem; color:var(--muted); cursor:default; }
-  .dropdown { position:absolute; top:calc(100% + 12px); left:50%; transform:translateX(-50%) translateY(6px); background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,0.08); padding:8px; min-width:220px; opacity:0; visibility:hidden; transition:opacity 0.15s ease,transform 0.15s ease,visibility 0.15s; z-index:100; }
+  .dropdown { position:absolute; top:calc(100% + 12px); left:50%; transform:translateX(-50%) translateY(6px); background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,0.08); padding:8px; min-width:220px; opacity:0; visibility:hidden; transition:all 0.15s ease; z-index:100; }
   .dropdown-link { display:block; font-size:0.82rem; color:var(--fg); text-decoration:none; padding:8px 12px; border-radius:6px; transition:background 0.15s; }
   .dropdown-link:hover { background:var(--highlight-soft); color:var(--highlight); }
-  .article-layout { display:grid; grid-template-columns:1fr 280px; gap:64px; padding:56px 0 80px; align-items:start; }
-  .breadcrumb { font-size:0.78rem; color:var(--muted); margin-bottom:24px; display:flex; align-items:center; gap:8px; }
+
+  /* LAYOUT */
+  .page-layout { display:grid; grid-template-columns:1fr 220px; gap:72px; padding:48px 0 80px; align-items:start; }
+
+  /* HEADER */
+  .breadcrumb { font-size:0.78rem; color:var(--muted); margin-bottom:32px; }
   .breadcrumb a { color:var(--muted); text-decoration:none; }
   .breadcrumb a:hover { color:var(--highlight); }
-  .article-type { font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--highlight); margin-bottom:12px; }
-  .article-title { font-family:'Instrument Serif',serif; font-size:clamp(1.6rem,3vw,2.2rem); font-weight:400; line-height:1.2; color:var(--navy); margin-bottom:16px; }
-  .article-meta { font-size:0.78rem; color:var(--muted); margin-bottom:40px; padding-bottom:32px; border-bottom:1px solid var(--border); }
-  .article-body h2 { font-family:'Instrument Serif',serif; font-size:1.35rem; font-weight:400; color:var(--navy); margin:40px 0 14px; padding-top:40px; border-top:1px solid var(--border); }
-  .article-body h2:first-child { margin-top:0; padding-top:0; border-top:none; }
-  .article-body p { font-size:0.95rem; line-height:1.75; color:var(--fg); margin-bottom:16px; }
-  .article-body a { color:var(--highlight); text-decoration:none; border-bottom:1px solid rgba(45,91,255,0.25); }
-  .article-body a:hover { border-color:var(--highlight); }
+  .firm-header { display:flex; align-items:center; gap:20px; margin-bottom:8px; }
+  .firm-logo-sm { width:48px; height:48px; border-radius:10px; border:1px solid var(--border); background:#fff; padding:6px; object-fit:contain; }
+  .article-type { font-size:0.68rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--highlight); }
+  h1 { font-family:'Instrument Serif',serif; font-size:clamp(1.7rem,3vw,2.3rem); font-weight:400; line-height:1.2; color:var(--navy); margin:12px 0 6px; }
+  .article-meta { font-size:0.78rem; color:var(--muted); margin-bottom:32px; }
+  .quick-stats { display:flex; flex-wrap:wrap; gap:24px; padding:20px 24px; background:var(--card-bg); border:1px solid var(--border); border-radius:8px; margin-bottom:48px; }
+  .quick-stat { display:flex; flex-direction:column; gap:2px; }
+  .quick-stat-label { font-size:0.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+  .quick-stat-value { font-size:0.88rem; font-weight:500; }
+
+  /* CONTENT */
+  .content h2 { font-family:'Instrument Serif',serif; font-size:1.4rem; font-weight:400; color:var(--navy); margin:48px 0 16px; padding-top:32px; border-top:1px solid var(--border); }
+  .content h2:first-child { margin-top:0; padding-top:0; border-top:none; }
+  .content p { font-size:0.94rem; line-height:1.8; margin-bottom:16px; }
+  .content a { color:var(--highlight); text-decoration:none; border-bottom:1px solid rgba(45,91,255,0.2); }
+  .content a:hover { border-color:var(--highlight); }
+  .content strong { font-weight:600; }
+
+  /* TEAM */
   .team-list { list-style:none; margin:0 0 16px; }
-  .team-list li { font-size:0.92rem; padding:12px 0; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:baseline; gap:16px; }
+  .team-list li { font-size:0.9rem; padding:12px 0; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:baseline; gap:16px; }
   .team-list li:last-child { border-bottom:none; }
   .team-name { font-weight:500; }
-  .team-role { font-size:0.8rem; color:var(--muted); }
-  .team-links { display:flex; gap:10px; font-size:0.75rem; flex-shrink:0; }
+  .team-role { font-size:0.78rem; color:var(--muted); }
+  .team-links { display:flex; gap:10px; font-size:0.73rem; flex-shrink:0; }
   .team-links a { color:var(--highlight); text-decoration:none; border-bottom:none; }
+
+  /* PORTFOLIO */
   .portfolio-grid { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
-  .portfolio-tag { font-size:0.8rem; padding:5px 12px; border-radius:4px; border:1px solid var(--border); color:var(--fg); text-decoration:none; background:var(--card-bg); transition:all 0.15s; border-bottom:none; }
+  .portfolio-tag { font-size:0.8rem; padding:5px 14px; border-radius:4px; border:1px solid var(--border); color:var(--fg); text-decoration:none; background:var(--card-bg); transition:all 0.15s; border-bottom:none; }
   .portfolio-tag:hover { border-color:var(--highlight); color:var(--highlight); background:var(--highlight-soft); }
-  .sidebar { position:sticky; top:80px; }
-  .sidebar-card { background:var(--card-bg); border:1px solid var(--border); border-radius:8px; padding:24px; margin-bottom:20px; }
-  .sidebar-label { font-size:0.68rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
-  .sidebar-stat { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; border-bottom:1px solid var(--border); font-size:0.82rem; }
-  .sidebar-stat:last-child { border-bottom:none; }
-  .sidebar-stat-label { color:var(--muted); }
-  .sidebar-stat-value { font-weight:500; }
-  .firm-logo-header { width:64px; height:64px; margin-bottom:20px; }
-  .firm-logo-header img { width:100%; height:100%; object-fit:contain; border-radius:12px; border:1px solid var(--border); background:#fff; padding:8px; }
-  .related-firms { margin-top:48px; padding-top:40px; border-top:1px solid var(--border); }
-  .related-firms h3 { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--navy); margin-bottom:16px; }
+
+  /* TOC SIDEBAR */
+  .toc { position:sticky; top:80px; }
+  .toc-label { font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+  .toc-list { list-style:none; }
+  .toc-list li { margin-bottom:0; }
+  .toc-list a { font-size:0.78rem; color:var(--muted); text-decoration:none; display:block; padding:6px 0 6px 12px; border-left:2px solid transparent; transition:all 0.15s; line-height:1.4; }
+  .toc-list a:hover { color:var(--highlight); border-left-color:var(--highlight); }
+  .toc-list a.active { color:var(--highlight); border-left-color:var(--highlight); font-weight:500; }
+
+  /* RELATED */
+  .related-section { margin-top:48px; padding-top:40px; border-top:1px solid var(--border); }
+  .related-section h3 { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--navy); margin-bottom:16px; }
   .related-links { display:flex; flex-wrap:wrap; gap:10px; }
   .related-link { font-size:0.82rem; padding:8px 16px; border:1px solid var(--border); border-radius:6px; text-decoration:none; color:var(--fg); background:var(--card-bg); transition:all 0.15s; }
   .related-link:hover { border-color:var(--highlight); color:var(--highlight); background:var(--highlight-soft); }
-  footer { border-top:1px solid var(--border); padding:40px 0; }
+
+  footer { border-top:1px solid var(--border); padding:40px 0; margin-top:0; }
   footer p { font-size:0.8rem; color:var(--muted); }
   footer a { color:var(--muted); text-decoration:none; }
-  @media (max-width:768px) { .container { padding:0 20px; } .article-layout { grid-template-columns:1fr; gap:40px; } .sidebar { position:static; } }
+
+  @media (max-width:768px) {
+    .container { padding:0 20px; }
+    .page-layout { grid-template-columns:1fr; gap:40px; }
+    .toc { position:static; order:-1; padding:16px 20px; background:var(--card-bg); border:1px solid var(--border); border-radius:8px; }
+    .quick-stats { gap:16px; }
+  }
 </style>
 </head>
 <body>
@@ -107,47 +135,44 @@
   </div>
 </nav>
 <div class="container">
-  <div class="article-layout">
+  <div class="page-layout">
     <main>
-      <div class="breadcrumb"><a href="/blog">Firms</a><span>/</span>Norrsken VC</div>
-      <div class="firm-logo-header"><img src="https://logo.clearbit.com/norrsken.vc" alt="" onerror="this.style.display='none'"></div><div class="article-type">Impact VC</div><h1 class="article-title">Why Norrsken VC: Interviews, Careers, & Portfolio</h1><div class="article-meta">Last updated April 2025</div><div class="article-body">
-<h2>Overview</h2>
-<p>Norrsken VC is Europe's leading impact venture capital firm. Founded as the investment arm of the Norrsken Foundation — created in 2016 by Niklas Adalberth, co-founder of Klarna — the firm backs early-stage founders building companies that address the world's most pressing social and environmental challenges. Fund II closed in 2024 at €320M, making it the largest early-stage generalist impact fund in Europe.</p>
-<p>The fund is SFDR Article 9 compliant — the highest classification under EU sustainable finance regulation. Every investment must align with at least one of the 17 UN Sustainable Development Goals. But Norrsken is not a concessionary impact fund. The firm targets market-rate returns and invests in companies that have genuine commercial viability. The thesis is that solving real problems at scale is the best way to generate both returns and impact.</p>
-<p>The portfolio spans climate tech, energy, healthtech, biotech, and education. Norrsken has backed two unicorns — Einride (autonomous electric trucks) and 1KOMMA5° (renewable energy). The Norrsken Foundation also runs co-working spaces in Stockholm, Barcelona, and Kigali that serve as hubs for impact-driven founders.</p>
-
-<h2>Key People</h2>
-<ul class="team-list">
-  <li><div><div class="team-name">Niklas Adalberth</div><div class="team-role">Founder & General Partner</div></div><div class="team-links"><a href="https://www.linkedin.com/in/niklas-adalberth/" target="_blank">LinkedIn</a></div></li>
-  <li><div><div class="team-name">Agate Freimane</div><div class="team-role">Founding General Partner</div></div><div class="team-links"><a href="https://www.linkedin.com/in/agatefreimane/" target="_blank">LinkedIn</a></div></li>
-  <li><div><div class="team-name">Tove Larsson</div><div class="team-role">Founding General Partner</div></div><div class="team-links"><a href="https://www.linkedin.com/in/tovelarsson/" target="_blank">LinkedIn</a></div></li>
-  <li><div><div class="team-name">David Helgason</div><div class="team-role">Founding GP — founder of Unity</div></div><div class="team-links"><a href="https://www.linkedin.com/in/davidhelgason/" target="_blank">LinkedIn</a></div></li>
-</ul>
-
-<h2>Notable Portfolio</h2>
-<div class="portfolio-grid">
-  <a href="https://www.crunchbase.com/organization/einride" class="portfolio-tag" target="_blank">Einride</a>
-  <a href="https://www.crunchbase.com/organization/1komma5" class="portfolio-tag" target="_blank">1KOMMA5°</a>
-  <a href="https://www.crunchbase.com/organization/northvolt" class="portfolio-tag" target="_blank">Northvolt</a>
-  <a href="https://www.crunchbase.com/organization/heart-aerospace" class="portfolio-tag" target="_blank">Heart Aerospace</a>
-  <a href="https://www.crunchbase.com/organization/sylvera" class="portfolio-tag" target="_blank">Sylvera</a>
-</div>
-<p>2 unicorns: Einride and 1KOMMA5°.</p>
-
-<h2>Careers at Norrsken VC</h2>
-<p>Norrsken VC has a team of 26 including 6 partners. The firm hires investment analysts and associates. The profile they look for combines genuine conviction on impact with strong financial and analytical skills. Domain expertise in climate tech, biotech, or energy is a clear differentiator — the team needs people who can evaluate the technical viability of deeptech companies, not just run a DCF.</p>
-<p>Engaging with the Norrsken House community in Stockholm or Barcelona is a credible way to build a relationship with the team before applying. The Foundation runs events, hackathons, and founder meetups that are open to the public.</p>
-</div>
-      <div class="related-firms">
+      <div class="breadcrumb"><a href="/blog">Fund Profiles</a> / Norrsken VC</div>
+      <div class="firm-header">
+        <img class="firm-logo-sm" src="https://logo.clearbit.com/norrsken.vc" alt="" onerror="this.style.display='none'">
+        <div class="article-type">Impact VC</div>
+      </div>
+      <h1>Why Norrsken VC: Interviews, Careers, & Portfolio</h1>
+      <div class="article-meta">Last updated April 2025</div>
+      <div class="quick-stats"><div class="quick-stat"><span class="quick-stat-label">Founded</span><span class="quick-stat-value">2017</span></div><div class="quick-stat"><span class="quick-stat-label">HQ</span><span class="quick-stat-value">Stockholm</span></div><div class="quick-stat"><span class="quick-stat-label">AUM</span><span class="quick-stat-value">€320M (Fund II)</span></div><div class="quick-stat"><span class="quick-stat-label">Stage</span><span class="quick-stat-value">Seed, Series A</span></div><div class="quick-stat"><span class="quick-stat-label">Team</span><span class="quick-stat-value">26</span></div></div>
+      <div class="content" id="article-content">
+        <h2 id="overview">Norrsken VC Overview</h2><p>Norrsken VC is Europe's leading impact venture fund. Founded by Niklas Adalberth, co-founder of Klarna. Fund II closed in 2024 at €320M — the largest early-stage generalist impact fund in Europe. SFDR Article 9 compliant: every investment must align with at least one UN Sustainable Development Goal. The firm targets market-rate returns, not concessionary impact.</p>
+<h2 id="aum">Norrsken VC AUM</h2><p>€320M (Fund II, 2024). Portfolio spans climate tech, energy, healthtech, biotech, and education. 2 unicorns: Einride and 1KOMMA5°.</p>
+<h2 id="team">Norrsken VC Key People</h2><ul class="team-list"><li><div><div class="team-name">Niklas Adalberth</div><div class="team-role">Founder & GP</div></div><div class="team-links"><a href="https://www.linkedin.com/in/niklas-adalberth/" target="_blank">LinkedIn</a></div></li><li><div><div class="team-name">Agate Freimane</div><div class="team-role">Founding GP</div></div><div class="team-links"><a href="https://www.linkedin.com/in/agatefreimane/" target="_blank">LinkedIn</a></div></li><li><div><div class="team-name">David Helgason</div><div class="team-role">Founding GP — founder of Unity</div></div><div class="team-links"><a href="https://www.linkedin.com/in/davidhelgason/" target="_blank">LinkedIn</a></div></li></ul>
+<h2 id="portfolio">Norrsken VC Portfolio</h2><div class="portfolio-grid"><a href="https://www.crunchbase.com/organization/einride" class="portfolio-tag" target="_blank">Einride</a><a href="https://www.crunchbase.com/organization/1komma5" class="portfolio-tag" target="_blank">1KOMMA5°</a><a href="https://www.crunchbase.com/organization/northvolt" class="portfolio-tag" target="_blank">Northvolt</a><a href="https://www.crunchbase.com/organization/heart-aerospace" class="portfolio-tag" target="_blank">Heart Aerospace</a><a href="https://www.crunchbase.com/organization/sylvera" class="portfolio-tag" target="_blank">Sylvera</a></div>
+<h2 id="careers">Norrsken VC Careers</h2><p>Team of 26 including 6 partners. Hires analysts and associates. Domain expertise in climate tech, biotech, or energy is a clear differentiator. Engage with Norrsken House community in Stockholm or Barcelona to build relationships.</p>
+      </div>
+      <div class="related-section">
         <h3>Explore other fund profiles</h3>
         <div class="related-links"><a href="/blog/creandum" class="related-link">Creandum</a><a href="/blog/lakestar" class="related-link">Lakestar</a><a href="/blog/entrepreneurs-first" class="related-link">Entrepreneurs First</a></div>
       </div>
     </main>
-    <aside class="sidebar">
-      <div class="sidebar-card"><div class="sidebar-label">Fund Overview</div><div class="sidebar-stat"><span class="sidebar-stat-label">Founded</span><span class="sidebar-stat-value">2017</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">HQ</span><span class="sidebar-stat-value">Stockholm</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">AUM</span><span class="sidebar-stat-value">€320M (Fund II)</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">Stage</span><span class="sidebar-stat-value">Seed, Series A</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">Team</span><span class="sidebar-stat-value">26</span></div></div><div class="sidebar-card"><div class="sidebar-label">Recruiting</div><div class="sidebar-stat"><span class="sidebar-stat-label">Cycle</span><span class="sidebar-stat-value">Off-cycle</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">Junior roles</span><span class="sidebar-stat-value">Yes — analyst / associate</span></div><div class="sidebar-stat"><span class="sidebar-stat-label">Format</span><span class="sidebar-stat-value">Impact conviction + case</span></div></div>
+    <aside>
+      <nav class="toc">
+        <div class="toc-label">On This Page</div>
+        <ul class="toc-list">
+          <li><a href="#overview">Overview</a></li><li><a href="#aum">AUM</a></li><li><a href="#team">Key People</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#careers">Careers</a></li>
+        </ul>
+      </nav>
     </aside>
   </div>
 </div>
 <footer><div class="container"><p><a href="/blog">← Back to all firms</a> · © 2026 Buyside School</p></div></footer>
+<script>
+const toc=document.querySelectorAll('.toc-list a');
+const sections=[];
+toc.forEach(a=>{const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el)sections.push({el,a});});
+window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(s.el.getBoundingClientRect().top<120)cur=s.a.getAttribute('href');});toc.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')===cur);});});
+</script>
 </body>
 </html>
