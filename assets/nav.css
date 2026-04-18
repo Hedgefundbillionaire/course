@@ -1,8 +1,9 @@
+/* Shared site navigation */
 .top-nav {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(250,250,248,0.92);
+  background: rgba(250, 250, 248, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
@@ -42,13 +43,13 @@
 }
 
 .nav-link {
+  display: inline-block;
   font-size: 0.82rem;
   color: var(--muted);
   cursor: default;
   padding: 16px 20px;
   border-radius: 0;
   transition: color 0.2s ease, background 0.2s ease;
-  display: inline-block;
 }
 
 .nav-link:hover {
@@ -74,7 +75,7 @@
   border-radius: 0 0 6px 6px;
   box-shadow: none;
   padding: 0;
-  min-width: 210px;
+  min-width: 200px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
@@ -126,7 +127,7 @@
 .mobile-menu-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(11,29,58,0.18);
+  background: rgba(11, 29, 58, 0.18);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.22s ease, visibility 0.22s ease;
@@ -144,8 +145,8 @@
   right: 0;
   width: min(88vw, 360px);
   height: 100vh;
-  background: #fff;
-  box-shadow: -12px 0 40px rgba(0,0,0,0.08);
+  background: #fcfcfc;
+  box-shadow: -12px 0 40px rgba(0, 0, 0, 0.08);
   transform: translateX(100%);
   transition: transform 0.25s ease;
   z-index: 100;
@@ -183,8 +184,7 @@
 .mobile-menu-links {
   display: flex;
   flex-direction: column;
-  gap: 22px;
-  margin-top: 8px;
+  gap: 18px;
 }
 
 .mobile-menu-links a {
