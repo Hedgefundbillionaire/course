@@ -104,12 +104,10 @@
 
 .nav-login {
   display: inline-block;
-  font-family: 'DM Sans', sans-serif;
+  font: inherit;
   font-size: 0.82rem;
   font-weight: 400;
   color: var(--muted);
-  background: transparent;
-  border: none;
   padding: 16px 4px;
   text-decoration: none;
   transition: color 0.2s ease;
