@@ -50,8 +50,8 @@
 
 .nav-inner {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding-top: 14px;
   padding-bottom: 14px;
 }
@@ -61,48 +61,71 @@
   font-size: 1.15rem;
   color: var(--fg);
   text-decoration: none;
-  white-space: nowrap;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
   gap: 28px;
-  margin-left: auto;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
 
 .nav-link {
   font-size: 0.82rem;
   color: var(--muted);
   text-decoration: none;
-  transition: color 0.2s ease;
-  white-space: nowrap;
+  transition: color 0.2s;
+  cursor: default;
 }
 
 .nav-link:hover {
   color: var(--fg);
 }
 
-.nav-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--fg);
-  color: #fff;
-  text-decoration: none;
+.dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  padding: 8px;
+  min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  z-index: 100;
+}
+
+.dropdown-link {
+  display: block;
   font-size: 0.82rem;
-  font-weight: 600;
-  padding: 11px 18px;
-  border-radius: 8px;
-  transition: opacity 0.2s ease, transform 0.15s ease;
-  white-space: nowrap;
+  color: var(--fg);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.15s;
 }
 
-.nav-button:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
+.dropdown-link:hover {
+  background: var(--highlight-soft);
+  color: var(--highlight);
 }
 
+/* mobile trigger hidden on desktop */
 .menu-toggle {
   display: none;
   width: 42px;
@@ -115,7 +138,6 @@
   justify-content: center;
   flex-direction: column;
   gap: 5px;
-  margin-left: auto;
 }
 
 .menu-toggle span {
@@ -126,10 +148,11 @@
   border-radius: 2px;
 }
 
+/* mobile drawer */
 .mobile-menu-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(11, 29, 58, 0.18);
+  background: rgba(11,29,58,0.18);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.22s ease, visibility 0.22s ease;
@@ -208,7 +231,7 @@
   font-weight: 600;
 }
 
-/* MOBILE ONLY */
+/* MOBILE ONLY: desktop untouched above this point */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -550,8 +573,13 @@
     <a href="/" class="nav-logo">Buyside School</a>
 
     <div class="nav-links">
-      <a href="/resources" class="nav-link">Investment Memos</a>
-      <a href="/blog" class="nav-link">Fund Profiles</a>
+      <div class="nav-item">
+        <span class="nav-link">Free Resources ▾</span>
+        <div class="dropdown">
+          <a href="/resources" class="dropdown-link">Investment Memos</a>
+          <a href="/blog" class="dropdown-link">Venture Capital Fund Profiles</a>
+        </div>
+      </div>
     </div>
 
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -573,6 +601,9 @@
   <div class="mobile-menu-links">
     <a href="/resources">Investment Memos</a>
     <a href="/blog">Venture Capital Fund Profiles</a>
+    <a href="#chapters">Course Curriculum</a>
+    <a href="#about">About Us</a>
+    <a href="https://buy.stripe.com/dRm8wQ9Wga4c2wd3vOfUQ01" class="mobile-menu-cta">Get the playbook</a>
   </div>
 </aside>
 <div class="hero-wrapper">
