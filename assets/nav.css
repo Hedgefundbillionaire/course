@@ -103,25 +103,20 @@
 }
 
 .nav-login {
-  display: inline-flex;
-  align-items: center;
+  display: inline-block;
   font-family: 'DM Sans', sans-serif;
   font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--fg);
-  background: #fff;
-  border: 1px solid #dcdcdc;
-  border-radius: 6px;
-  padding: 8px 18px;
+  font-weight: 400;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  padding: 16px 20px;
   text-decoration: none;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-  margin-left: 4px;
+  transition: color 0.2s ease;
 }
 
 .nav-login:hover {
-  background: var(--fg);
-  color: #fff;
-  border-color: var(--fg);
+  color: var(--fg);
 }
 
 .menu-toggle {
