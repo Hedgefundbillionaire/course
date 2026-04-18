@@ -288,28 +288,21 @@
   }
   .selection-seal {
     width: 78px; height: 78px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 32% 30%, #6BA3FF 0%, #2D5BFF 60%, #0B1D3A 100%);
+    border-radius: 14px;
+    background: #fff;
+    border: 1px solid var(--border);
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    font-family: 'Instrument Serif', serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.04em;
-    position: relative;
+    overflow: hidden;
   }
-  .selection-seal::before {
-    content: 'BUYSIDE · SCHOOL · CERTIFIED · PLAYBOOK ·';
-    position: absolute;
-    inset: -2px;
-    font-size: 0.44rem;
-    letter-spacing: 0.12em;
-    color: rgba(255,255,255,0.85);
-    animation: none;
+  .selection-seal img {
+    width: 64%;
+    height: 64%;
+    object-fit: contain;
+    display: block;
   }
-  .selection-seal span { z-index: 1; font-family: 'Instrument Serif', serif; font-style: italic; }
   .selection-name {
     font-size: 1.05rem;
     font-weight: 600;
@@ -456,7 +449,7 @@
       <div class="selection-label">Your Selection</div>
       <div class="selection-hr"></div>
       <div class="selection-row">
-        <div class="selection-seal"><span>BS</span></div>
+        <div class="selection-seal"><img src="/favicons/android-chrome-192x192.png" alt="Buyside School"></div>
         <div>
           <div class="selection-name">The European VC Recruiting Playbook</div>
           <div class="selection-desc">Break into European VC — 7 chapters built by industry professionals. Lifetime access, 2026 edition.</div>
