@@ -40,17 +40,6 @@
   body { font-family:'DM Sans',-apple-system,sans-serif; background:var(--bg); color:var(--fg); -webkit-font-smoothing:antialiased; line-height:1.7; }
   .container { max-width:1100px; margin:0 auto; padding:0 40px; }
 
-  /* NAV */
-  .top-nav { position:sticky; top:0; z-index:50; background:rgba(250,250,248,0.92); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
-  .top-nav .container { display:flex; justify-content:space-between; align-items:center; padding-top:14px; padding-bottom:14px; }
-  .nav-logo { font-family:'Instrument Serif',serif; font-size:1.15rem; color:var(--fg); text-decoration:none; }
-  .nav-links { display:flex; align-items:center; gap:28px; }
-  .nav-item { position:relative; display:flex; align-items:center; }
-  .nav-item:hover .dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
-  .nav-link { font-size:0.82rem; color:var(--muted); cursor:default; }
-  .dropdown { position:absolute; top:calc(100% + 12px); left:50%; transform:translateX(-50%) translateY(6px); background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:0 8px 32px rgba(0,0,0,0.08); padding:8px; min-width:220px; opacity:0; visibility:hidden; transition:all 0.15s ease; z-index:100; }
-  .dropdown-link { display:block; font-size:0.82rem; color:var(--fg); text-decoration:none; padding:8px 12px; border-radius:6px; transition:background 0.15s; }
-  .dropdown-link:hover { background:var(--highlight-soft); color:var(--highlight); }
 
   /* LAYOUT */
   .page-layout { display:grid; grid-template-columns:1fr 220px; gap:72px; padding:48px 0 80px; align-items:start; }
@@ -129,11 +118,13 @@
 .footer-inner a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.82rem; }
 .footer-inner a:hover { color: #fff; }
 </style>
+<link rel="stylesheet" href="/assets/nav.css">
 </head>
 <body>
 <nav class="top-nav">
-  <div class="container">
+  <div class="container nav-inner">
     <a href="/" class="nav-logo">Buyside School</a>
+
     <div class="nav-links">
       <div class="nav-item">
         <span class="nav-link">Free Resources ▾</span>
@@ -143,8 +134,28 @@
         </div>
       </div>
     </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </nav>
+
+<div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+<aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-header">
+    <span class="mobile-menu-title">Buyside School</span>
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">×</button>
+  </div>
+
+  <div class="mobile-menu-links">
+    <a href="/resources">Investment Memos</a>
+    <a href="/blog">Venture Capital Fund Profiles</a>
+  </div>
+</aside>
 <div class="container">
   <div class="page-layout">
     <main>
@@ -231,5 +242,6 @@ const sections=[];
 toc.forEach(a=>{const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el)sections.push({el,a});});
 window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(s.el.getBoundingClientRect().top<120)cur=s.a.getAttribute('href');});toc.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')===cur);});});
 </script>
+<script src="/assets/nav.js"></script>
 </body>
 </html>
