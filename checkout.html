@@ -367,12 +367,83 @@
     font-weight: 600;
   }
 
+  /* Mobile selection bar (hidden on desktop) */
+  .ms-toggle { display: none; }
+  .mini-badge { display: none; }
+  .ms-content {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    flex: 1;
+  }
+
   @media (max-width: 900px) {
-    .co-grid { grid-template-columns: 1fr; }
-    .co-right { order: -1; padding: 32px 24px; gap: 20px; }
-    .co-left { padding: 36px 24px; }
-    .co-header { padding: 16px 24px; }
+    .co-grid { grid-template-columns: 1fr; min-height: 0; }
+    .co-right {
+      order: -1;
+      padding: 0;
+      background: #fff;
+      gap: 0;
+    }
+    .co-left {
+      padding: 28px 24px 40px;
+      position: relative;
+    }
+    .co-header { padding: 14px 20px; }
     .feature-list { gap: 16px; }
+
+    .ms-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      padding: 18px 24px;
+      background: var(--panel);
+      border: none;
+      border-bottom: 1px solid var(--border);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--fg);
+      text-align: left;
+      cursor: pointer;
+    }
+    .ms-toggle .ms-chevron {
+      transition: transform 0.2s ease;
+      width: 18px; height: 18px;
+      display: inline-block;
+    }
+    .ms-toggle[aria-expanded="true"] .ms-chevron { transform: rotate(180deg); }
+
+    .ms-content {
+      display: none;
+      padding: 20px 24px 28px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      gap: 20px;
+    }
+    .ms-content.open { display: flex; }
+
+    .mini-badge {
+      display: flex;
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--border);
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .mini-badge img { width: 64%; height: 64%; object-fit: contain; display: block; }
+
+    .co-title { margin-bottom: 28px; }
   }
   @media (max-width: 520px) {
     .row { grid-template-columns: 1fr; }
@@ -388,6 +459,7 @@
 
 <main class="co-grid">
   <section class="co-left">
+    <span class="mini-badge" aria-hidden="true"><img src="/favicons/android-chrome-192x192.png" alt=""></span>
     <span class="save-chip">Save 30%</span>
     <h1 class="co-title">Ready to enroll?<br>Let's do this.</h1>
 
@@ -445,6 +517,11 @@
   </section>
 
   <aside class="co-right">
+    <button type="button" class="ms-toggle" id="msToggle" aria-expanded="false" aria-controls="msContent">
+      <span>Your Selection</span>
+      <svg class="ms-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="ms-content" id="msContent">
     <div class="selection-card">
       <div class="selection-label">Your Selection</div>
       <div class="selection-hr"></div>
@@ -493,6 +570,7 @@
       <span class="stars">★★★★★</span>
       <span class="trustpilot"><strong>4.9/5</strong> · 50+ candidates placed</span>
     </div>
+    </div>
   </aside>
 </main>
 
@@ -530,6 +608,15 @@
     }
     cc.addEventListener('change', updateFlag);
     updateFlag();
+
+    const msToggle = document.getElementById('msToggle');
+    const msContent = document.getElementById('msContent');
+    if (msToggle && msContent) {
+      msToggle.addEventListener('click', function () {
+        const open = msContent.classList.toggle('open');
+        msToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
 
     function submitLead(data) {
       // Fire-and-forget lead capture to the existing ConvertKit form.
