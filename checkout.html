@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enroll — Buyside School</title>
+<meta name="description" content="Enroll in The European VC Recruiting Playbook.">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+<link rel="icon" href="/favicons/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --fg: #1A1A1A;
+    --muted: #7A7A7A;
+    --highlight: #2D5BFF;
+    --highlight-soft: rgba(45,91,255,0.06);
+    --card-bg: #FFFFFF;
+    --border: #E8E8E4;
+    --navy: #0B1D3A;
+    --panel: #F5F5F1;
+    --field-border: #D8D8D4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: #fff; color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    line-height: 1.55;
+  }
+  a { color: inherit; }
+
+  .co-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--border);
+    background: #fff;
+  }
+  .co-logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.35rem;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .co-close {
+    width: 36px; height: 36px;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    border-radius: 50%;
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: background 0.15s ease;
+  }
+  .co-close:hover { background: #f1f1ec; }
+
+  .co-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 77px);
+  }
+  .co-left {
+    padding: 56px clamp(24px, 6vw, 96px);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .co-right {
+    padding: 56px clamp(24px, 5vw, 72px);
+    background: var(--panel);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .save-chip {
+    display: inline-block;
+    background: #EAFBE1;
+    color: #1E6A36;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .co-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    color: var(--fg);
+    margin-bottom: 36px;
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    border-top: 1px solid var(--border);
+    padding: 22px 0;
+  }
+  .step:last-child { border-bottom: 1px solid var(--border); }
+  .step-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .step.active .step-head { color: var(--fg); }
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px; height: 22px;
+    font-weight: 600;
+  }
+  .step-body { margin-top: 20px; }
+  .step-sub {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .row > * { min-width: 0; }
+
+  .field-input,
+  .phone-wrap {
+    width: 100%;
+    height: 52px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--fg);
+    background: #fff;
+    border: 1px solid var(--field-border);
+    border-radius: 8px;
+    padding: 0 16px;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .field-input::placeholder { color: #A8A8A4; }
+  .field-input:focus,
+  .phone-wrap:focus-within {
+    border-color: var(--fg);
+    box-shadow: 0 0 0 1px var(--fg);
+  }
+
+  .email-help {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin: 6px 0 16px;
+  }
+
+  .phone-wrap {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+  }
+  .phone-cc {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px 0 14px;
+    border-right: 1px solid var(--field-border);
+    font-size: 0.95rem;
+    color: var(--fg);
+    height: 100%;
+    background: #fff;
+  }
+  .phone-flag {
+    width: 22px; height: 16px;
+    display: inline-block;
+    border-radius: 2px;
+    overflow: hidden;
+    background: linear-gradient(to right, #0055A4 33%, #fff 33% 66%, #EF4135 66%);
+    flex-shrink: 0;
+  }
+  .phone-cc select {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background: transparent;
+    font: inherit;
+    color: inherit;
+    padding-right: 14px;
+    cursor: pointer;
+    outline: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%231A1A1A' stroke-width='1.4' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 2px center;
+  }
+  .phone-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    height: 100%;
+    padding: 0 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--fg);
+    background: #fff;
+  }
+  .phone-input::placeholder { color: #A8A8A4; }
+
+  .terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 18px 0 24px;
+    font-size: 0.88rem;
+    color: var(--fg);
+  }
+  .terms input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--fg);
+    border-radius: 3px;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .terms input:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px; top: 0;
+    width: 6px; height: 11px;
+    border: solid var(--fg);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .terms a { text-decoration: underline; }
+
+  .next-btn {
+    width: 100%;
+    height: 54px;
+    background: var(--fg);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+  }
+  .next-btn:hover { opacity: 0.92; }
+  .next-btn:active { transform: translateY(1px); }
+  .next-btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+  /* Right column */
+  .selection-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 28px 26px;
+  }
+  .selection-label {
+    font-size: 1rem;
+    color: var(--fg);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .selection-hr {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 22px;
+  }
+  .selection-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 22px;
+  }
+  .selection-seal {
+    width: 78px; height: 78px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 30%, #6BA3FF 0%, #2D5BFF 60%, #0B1D3A 100%);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+    position: relative;
+  }
+  .selection-seal::before {
+    content: 'BUYSIDE · SCHOOL · CERTIFIED · PLAYBOOK ·';
+    position: absolute;
+    inset: -2px;
+    font-size: 0.44rem;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.85);
+    animation: none;
+  }
+  .selection-seal span { z-index: 1; font-family: 'Instrument Serif', serif; font-style: italic; }
+  .selection-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--fg);
+    margin-bottom: 4px;
+  }
+  .selection-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .selection-price {
+    font-size: 0.92rem;
+    color: var(--fg);
+    line-height: 1.55;
+  }
+  .selection-price strong { font-weight: 700; }
+
+  .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .feature-check {
+    width: 22px; height: 22px;
+    flex-shrink: 0;
+    color: var(--fg);
+    margin-top: 2px;
+  }
+  .feature-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--fg);
+    margin-bottom: 2px;
+  }
+  .feature-sub {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .proof {
+    margin-top: auto;
+    padding-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+  }
+  .proof strong { font-weight: 700; }
+  .proof .stars { color: #00B67A; letter-spacing: 2px; font-size: 1.1rem; }
+  .proof .trustpilot {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--fg);
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    .co-grid { grid-template-columns: 1fr; }
+    .co-right { order: -1; padding: 32px 24px; gap: 20px; }
+    .co-left { padding: 36px 24px; }
+    .co-header { padding: 16px 24px; }
+    .feature-list { gap: 16px; }
+  }
+  @media (max-width: 520px) {
+    .row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="co-header">
+  <a href="/" class="co-logo">Buyside School</a>
+  <a href="/" class="co-close" aria-label="Close">×</a>
+</header>
+
+<main class="co-grid">
+  <section class="co-left">
+    <span class="save-chip">Save 30%</span>
+    <h1 class="co-title">Ready to enroll?<br>Let's do this.</h1>
+
+    <form class="steps" id="enrollForm" novalidate>
+      <div class="step active">
+        <div class="step-head"><span class="step-num">1</span> Your Information</div>
+        <div class="step-body">
+          <p class="step-sub">Enter your information to enroll</p>
+
+          <div class="row">
+            <input class="field-input" name="first_name" id="first_name" type="text" placeholder="First name" autocomplete="given-name" required>
+            <input class="field-input" name="last_name" id="last_name" type="text" placeholder="Last name" autocomplete="family-name" required>
+          </div>
+
+          <input class="field-input" name="email" id="email" type="email" placeholder="Email" autocomplete="email" required style="margin-bottom:4px;">
+          <p class="email-help">This will be the email used to enroll and get access to the course</p>
+
+          <div class="phone-wrap">
+            <label class="phone-cc" for="country_code">
+              <span class="phone-flag" id="flag"></span>
+              <select id="country_code" name="country_code" aria-label="Country code">
+                <option value="+33" data-flag="fr" selected>+33</option>
+                <option value="+44" data-flag="gb">+44</option>
+                <option value="+1"  data-flag="us">+1</option>
+                <option value="+49" data-flag="de">+49</option>
+                <option value="+34" data-flag="es">+34</option>
+                <option value="+39" data-flag="it">+39</option>
+                <option value="+31" data-flag="nl">+31</option>
+                <option value="+41" data-flag="ch">+41</option>
+                <option value="+32" data-flag="be">+32</option>
+                <option value="+46" data-flag="se">+46</option>
+                <option value="+353" data-flag="ie">+353</option>
+                <option value="+45" data-flag="dk">+45</option>
+                <option value="+47" data-flag="no">+47</option>
+                <option value="+43" data-flag="at">+43</option>
+                <option value="+351" data-flag="pt">+351</option>
+              </select>
+            </label>
+            <input class="phone-input" name="phone" id="phone" type="tel" placeholder="6 12 34 56 78" autocomplete="tel">
+          </div>
+
+          <label class="terms">
+            <input type="checkbox" id="acceptTerms" checked>
+            <span>I accept Buyside School's <a href="#" target="_blank" rel="noopener">terms</a> and <a href="#" target="_blank" rel="noopener">privacy policy</a></span>
+          </label>
+
+          <button type="submit" class="next-btn" id="submitBtn">Next</button>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-head"><span class="step-num">2</span> Payment</div>
+      </div>
+    </form>
+  </section>
+
+  <aside class="co-right">
+    <div class="selection-card">
+      <div class="selection-label">Your Selection</div>
+      <div class="selection-hr"></div>
+      <div class="selection-row">
+        <div class="selection-seal"><span>BS</span></div>
+        <div>
+          <div class="selection-name">The European VC Recruiting Playbook</div>
+          <div class="selection-desc">Break into European VC — 7 chapters built by industry professionals. Lifetime access, 2026 edition.</div>
+        </div>
+      </div>
+      <div class="selection-price">One-time payment. <strong>Lifetime access.</strong> Continue to the next step to review pricing and checkout.</div>
+    </div>
+
+    <div class="feature-list">
+      <div class="feature">
+        <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <div>
+          <div class="feature-title">7 chapters of recruiting material</div>
+          <div class="feature-sub">Outreach, interviews, market thesis and positioning — the full European VC stack.</div>
+        </div>
+      </div>
+      <div class="feature">
+        <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <div>
+          <div class="feature-title">Built by working VC professionals</div>
+          <div class="feature-sub">Written by operators who've sat on both sides of the interview table.</div>
+        </div>
+      </div>
+      <div class="feature">
+        <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <div>
+          <div class="feature-title">Real fund memos &amp; templates</div>
+          <div class="feature-sub">Teardowns and frameworks you can reuse in interviews the same week.</div>
+        </div>
+      </div>
+      <div class="feature">
+        <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <div>
+          <div class="feature-title">14-day money-back guarantee</div>
+          <div class="feature-sub">If the playbook isn't for you, we'll refund every cent — no questions asked.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proof">
+      <span class="stars">★★★★★</span>
+      <span class="trustpilot"><strong>4.9/5</strong> · 50+ candidates placed</span>
+    </div>
+  </aside>
+</main>
+
+<script>
+  (function () {
+    const STRIPE_URL = 'https://buy.stripe.com/dRm8wQ9Wga4c2wd3vOfUQ01';
+
+    const form = document.getElementById('enrollForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const termsBox = document.getElementById('acceptTerms');
+    const flag = document.getElementById('flag');
+    const cc = document.getElementById('country_code');
+
+    const flagGradients = {
+      fr: 'linear-gradient(to right,#0055A4 33%,#fff 33% 66%,#EF4135 66%)',
+      gb: 'linear-gradient(#00247D,#00247D)',
+      us: 'linear-gradient(#B22234,#fff,#B22234,#fff,#B22234)',
+      de: 'linear-gradient(#000 33%,#DD0000 33% 66%,#FFCE00 66%)',
+      es: 'linear-gradient(#AA151B 25%,#F1BF00 25% 75%,#AA151B 75%)',
+      it: 'linear-gradient(to right,#008C45 33%,#fff 33% 66%,#CD212A 66%)',
+      nl: 'linear-gradient(#AE1C28 33%,#fff 33% 66%,#21468B 66%)',
+      ch: 'linear-gradient(#DA291C,#DA291C)',
+      be: 'linear-gradient(to right,#000 33%,#FAE042 33% 66%,#ED2939 66%)',
+      se: 'linear-gradient(#006AA7,#006AA7)',
+      ie: 'linear-gradient(to right,#169B62 33%,#fff 33% 66%,#FF883E 66%)',
+      dk: 'linear-gradient(#C60C30,#C60C30)',
+      no: 'linear-gradient(#BA0C2F,#BA0C2F)',
+      at: 'linear-gradient(#ED2939 33%,#fff 33% 66%,#ED2939 66%)',
+      pt: 'linear-gradient(to right,#006600 40%,#FF0000 40%)'
+    };
+    function updateFlag() {
+      const sel = cc.options[cc.selectedIndex];
+      const code = sel.getAttribute('data-flag');
+      flag.style.background = flagGradients[code] || flagGradients.fr;
+    }
+    cc.addEventListener('change', updateFlag);
+    updateFlag();
+
+    function submitLead(data) {
+      // Fire-and-forget lead capture to the existing ConvertKit form.
+      try {
+        const body = new FormData();
+        body.append('email_address', data.email);
+        body.append('fields[first_name]', data.first_name);
+        body.append('fields[last_name]', data.last_name);
+        body.append('fields[phone]', (data.country_code || '') + ' ' + (data.phone || ''));
+        body.append('fields[intent]', 'playbook_checkout');
+        fetch('https://app.kit.com/forms/9321532/subscriptions', {
+          method: 'POST',
+          mode: 'no-cors',
+          body: body
+        }).catch(function () {});
+      } catch (e) {}
+      try {
+        localStorage.setItem('bss_lead', JSON.stringify(Object.assign({}, data, { ts: Date.now() })));
+      } catch (e) {}
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const data = {
+        first_name: document.getElementById('first_name').value.trim(),
+        last_name: document.getElementById('last_name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        country_code: cc.value,
+        phone: document.getElementById('phone').value.trim()
+      };
+      if (!data.first_name || !data.last_name || !data.email) { return; }
+      if (!termsBox.checked) { termsBox.focus(); return; }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Redirecting…';
+
+      submitLead(data);
+
+      const url = new URL(STRIPE_URL);
+      url.searchParams.set('prefilled_email', data.email);
+      url.searchParams.set('client_reference_id', data.email);
+      window.location.href = url.toString();
+    });
+  })();
+</script>
+</body>
+</html>
