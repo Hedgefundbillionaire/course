@@ -150,8 +150,9 @@
 <body>
 
 <nav class="top-nav">
-  <div class="container">
+  <div class="container nav-inner">
     <a href="/" class="nav-logo">Buyside School</a>
+
     <div class="nav-links">
       <div class="nav-item">
         <span class="nav-link">Free Resources ▾</span>
@@ -161,8 +162,28 @@
         </div>
       </div>
     </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </nav>
+
+<div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+<aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-header">
+    <span class="mobile-menu-title">Buyside School</span>
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">×</button>
+  </div>
+
+  <div class="mobile-menu-links">
+    <a href="/resources">Investment Memos</a>
+    <a href="/blog">Venture Capital Fund Profiles</a>
+  </div>
+</aside>
 
 <div class="hero">
   <div class="container">
@@ -312,5 +333,37 @@
   </div>
   <style>.formkit-form[data-uid="7fa147fbf7"][data-format="modal"]{display:none;}.formkit-form[data-uid="7fa147fbf7"] .formkit-input,.formkit-form[data-uid="7fa147fbf7"] .formkit-select,.formkit-form[data-uid="7fa147fbf7"] .formkit-checkboxes{width:100%;}.formkit-form[data-uid="7fa147fbf7"] .formkit-button,.formkit-form[data-uid="7fa147fbf7"] .formkit-submit{border:0;border-radius:5px;color:#fff;cursor:pointer;display:inline-block;text-align:center;font-size:15px;font-weight:500;margin-bottom:15px;overflow:hidden;padding:0;position:relative;vertical-align:middle;}.formkit-form[data-uid="7fa147fbf7"] .formkit-button>span,.formkit-form[data-uid="7fa147fbf7"] .formkit-submit>span{display:block;padding:12px 24px;}.formkit-form[data-uid="7fa147fbf7"] .formkit-input{background:#fff;font-size:15px;padding:12px;border:1px solid #e3e3e3;flex:1 0 auto;line-height:1.4;margin:0;}.formkit-form[data-uid="7fa147fbf7"] .formkit-input:focus{outline:none;border-color:#1677be;}.formkit-form[data-uid="7fa147fbf7"] .formkit-input::placeholder{color:inherit;opacity:0.8;}.formkit-form[data-uid="7fa147fbf7"] .formkit-alert{background:#f9fafb;border:1px solid #e3e3e3;border-radius:5px;flex:1 0 auto;list-style:none;margin:25px auto;padding:12px;text-align:center;width:100%;}.formkit-form[data-uid="7fa147fbf7"] .formkit-alert:empty{display:none;}.formkit-form[data-uid="7fa147fbf7"] .formkit-spinner{display:flex;height:0;width:0;margin:0 auto;position:absolute;top:0;left:0;right:0;overflow:hidden;}.formkit-form[data-uid="7fa147fbf7"] .formkit-spinner>div{margin:auto;width:12px;height:12px;background-color:#fff;opacity:0.3;border-radius:100%;display:inline-block;animation:formkit-bouncedelay-formkit-form-data-uid-7fa147fbf7- 1.4s infinite ease-in-out both;}.formkit-form[data-uid="7fa147fbf7"] .formkit-submit[data-active] .formkit-spinner{opacity:1;height:100%;width:50px;}.formkit-form[data-uid="7fa147fbf7"] .formkit-submit[data-active] .formkit-spinner~span{opacity:0;}@keyframes formkit-bouncedelay-formkit-form-data-uid-7fa147fbf7-{0%,80%,100%{transform:scale(0);}40%{transform:scale(1);}}.formkit-form[data-uid="7fa147fbf7"] .formkit-modal.guard{max-width:420px;width:100%;}.formkit-form[data-uid="7fa147fbf7"]{box-shadow:0 0 2px rgba(0,0,0,0.15);max-width:700px;overflow:hidden;}@media only screen and (min-width:800px){.formkit-form[data-uid="7fa147fbf7"]{min-width:600px;}}.formkit-form[data-uid="7fa147fbf7"] [data-style="full"]{width:100%;display:block;}.formkit-form[data-uid="7fa147fbf7"] .formkit-background{background-position:center;background-size:cover;min-height:200px;}.formkit-form[data-uid="7fa147fbf7"] .formkit-column{padding:20px;position:relative;}.formkit-form[data-uid="7fa147fbf7"] .formkit-header{margin-top:0;margin-bottom:20px;}.formkit-form[data-uid="7fa147fbf7"] .formkit-field{margin:0 0 10px;}.formkit-form[data-uid="7fa147fbf7"] .formkit-input{width:100%;border-left:none;border-right:none;border-top:none;padding-left:0;padding-right:0;}.formkit-form[data-uid="7fa147fbf7"] .formkit-fields .formkit-submit{margin-top:15px;width:100%;}.formkit-form[data-uid="7fa147fbf7"] .formkit-disclaimer{margin:0 0 15px;}.formkit-form[data-uid="7fa147fbf7"][min-width~="600"] [data-style="full"],.formkit-form[data-uid="7fa147fbf7"][min-width~="700"] [data-style="full"],.formkit-form[data-uid="7fa147fbf7"][min-width~="800"] [data-style="full"]{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}</style>
 </form>
+  <script>
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    mobileOverlay.classList.add('show');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    mobileOverlay.classList.remove('show');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  if (menuToggle && mobileMenu && mobileClose && mobileOverlay) {
+    menuToggle.addEventListener('click', openMenu);
+    mobileClose.addEventListener('click', closeMenu);
+    mobileOverlay.addEventListener('click', closeMenu);
+
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
+</script>
 </body>
 </html>
