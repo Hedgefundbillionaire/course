@@ -234,7 +234,65 @@
   .faq-item p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
 
   /* TESTIMONIALS */
-  .testimonials { padding: 64px 40px; text-align: center; }
+  .testimonials {
+    padding: 80px 40px 56px;
+    background: #F5F5F1;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+  .testimonials .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .testimonials h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+    line-height: 1.1;
+    margin-bottom: 44px;
+  }
+  .testimonials-wall {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+    transition: max-height 0.35s ease;
+  }
+  .testimonials-wall.collapsed {
+    max-height: 760px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+  }
+  .testimonials-cta {
+    position: relative;
+    z-index: 2;
+    margin-top: -28px;
+    display: flex;
+    justify-content: center;
+  }
+  .load-more-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 14px 34px;
+    color: var(--fg);
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+    transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
+  }
+  .load-more-btn:hover { background: var(--fg); color: #fff; }
+  .load-more-btn:active { transform: translateY(1px); }
 
   /* DARK FOOTER */
   .site-footer {
@@ -520,9 +578,28 @@
 </div>
 
 <div class="testimonials">
-  <h2 class="section-title">We'll help you reach your goals</h2>
-  <div class="senja-embed" data-id="d8981307-8353-4f7e-91a2-3fa5d1057ddb" data-mode="shadow" data-lazyload="false" style="display:block;width:100%;max-width:1080px;margin:0 auto;"></div>
+  <div class="eyebrow">Our Community</div>
+  <h2>Student Testimonials</h2>
+  <div class="testimonials-wall collapsed" id="testimonialsWall">
+    <div class="senja-embed" data-id="d8981307-8353-4f7e-91a2-3fa5d1057ddb" data-mode="shadow" data-lazyload="false" style="display:block;width:100%;max-width:1080px;margin:0 auto;"></div>
+  </div>
+  <div class="testimonials-cta">
+    <button class="load-more-btn" id="loadMoreBtn" type="button">Load more</button>
+  </div>
 </div>
+<script>
+  (function () {
+    var btn = document.getElementById('loadMoreBtn');
+    var wall = document.getElementById('testimonialsWall');
+    if (btn && wall) {
+      btn.addEventListener('click', function () {
+        wall.classList.remove('collapsed');
+        wall.style.maxHeight = 'none';
+        btn.style.display = 'none';
+      });
+    }
+  })();
+</script>
 
 <div class="site-footer">
   <div class="footer-inner" style="flex-direction:column;gap:40px;">
