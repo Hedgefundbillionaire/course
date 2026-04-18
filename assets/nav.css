@@ -110,7 +110,7 @@
   color: var(--muted);
   background: transparent;
   border: none;
-  padding: 16px 20px;
+  padding: 16px 4px;
   text-decoration: none;
   transition: color 0.2s ease;
 }
