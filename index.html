@@ -98,6 +98,55 @@
   }
   .hero-stars { color: #FACC15; font-size: 1rem; letter-spacing: 2px; }
   .hero-proof-text { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+  .hero-testimonials-cta {
+    margin-top: 18px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .hero-testimonials-link {
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 500;
+    line-height: 1;
+    border-bottom: 2px solid rgba(255,255,255,0.92);
+    padding-bottom: 4px;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  }
+  .hero-testimonials-cta:hover .hero-testimonials-link {
+    opacity: 0.86;
+    transform: translateX(2px);
+    border-color: #fff;
+  }
+  .hero-testimonial-avatars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2px;
+  }
+  .hero-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.78);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    margin-left: -10px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255,255,255,0.28), rgba(107,163,255,0.32));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .hero-avatar:first-child { margin-left: 0; }
+  .hero-avatar:nth-child(2) { background: linear-gradient(135deg, #7B95C7, #2D5BFF); }
+  .hero-avatar:nth-child(3) { background: linear-gradient(135deg, #5F79A9, #163F76); }
+  .hero-avatar:nth-child(4) { background: linear-gradient(135deg, #98A9C9, #4D6FA8); }
 
   /* PROOF BAR (stats + landed-offers logos) */
   .proof-bar {
@@ -260,6 +309,7 @@
     background: #F5F5F1;
     text-align: center;
     border-top: 1px solid var(--border);
+    scroll-margin-top: 104px;
   }
   .testimonials .eyebrow {
     font-size: 0.72rem;
@@ -498,6 +548,15 @@
         <span class="hero-stars">★★★★★</span>
         <span class="hero-proof-text">4.9/5 avg. rating</span>
       </div>
+      <a href="#testimonials" class="hero-testimonials-cta" aria-label="See testimonials">
+        <span class="hero-testimonials-link">See Testimonials →</span>
+        <span class="hero-testimonial-avatars" aria-hidden="true">
+          <span class="hero-avatar">AL</span>
+          <span class="hero-avatar">MK</span>
+          <span class="hero-avatar">JP</span>
+          <span class="hero-avatar">RS</span>
+        </span>
+      </a>
     </div>
   </div>
 </div>
@@ -587,7 +646,7 @@
   </section>
 </div>
 
-<div class="testimonials">
+<div class="testimonials" id="testimonials">
   <div class="eyebrow">Our Community</div>
   <h2>Student Testimonials</h2>
   <div class="testimonials-wall collapsed" id="testimonialsWall">
