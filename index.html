@@ -554,7 +554,7 @@
         <span class="hero-stars">★★★★★</span>
         <span class="hero-proof-text">4.9/5 avg. rating</span>
       </div>
-      <a href="#testimonials" class="hero-testimonials-cta" aria-label="See testimonials">
+      <a href="/testimonials" class="hero-testimonials-cta" aria-label="See testimonials">
         <span class="hero-testimonials-link">See Testimonials →</span>
         <span class="hero-testimonial-avatars" aria-hidden="true">
           <span class="hero-avatar"><img src="https://senja-io.s3.us-west-1.amazonaws.com/public/media/77b06091-49a8-4272-97fe-85edc2e8f85f_00a785b1-e87f-4a32-aef5-a01445e85834_1718459214808.jpeg" alt=""></span>
@@ -666,6 +666,14 @@
   (function () {
     var btn = document.getElementById('loadMoreBtn');
     var wall = document.getElementById('testimonialsWall');
+    var testimonials = document.getElementById('testimonials');
+
+    if (window.location.pathname === '/testimonials' && testimonials) {
+      window.requestAnimationFrame(function () {
+        testimonials.scrollIntoView({ behavior: 'auto', block: 'start' });
+      });
+    }
+
     if (btn && wall) {
       btn.addEventListener('click', function () {
         wall.classList.remove('collapsed');
