@@ -48,92 +48,56 @@
     background: radial-gradient(circle, rgba(45,91,255,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
-  .hero-split {
-    display: flex; align-items: center; gap: 56px;
-    padding: 72px 0 80px;
+  .hero-centered {
+    max-width: 760px; margin: 0 auto;
+    padding: 112px 0 128px;
+    text-align: center;
+    position: relative; z-index: 1;
     opacity: 0; animation: fadeUp 0.6s ease 0.15s forwards;
   }
-  .hero-text { flex: 1; position: relative; z-index: 1; }
-  .hero-text h1 {
+  .hero-centered h1 {
     font-family: 'Instrument Serif', serif;
-    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-size: clamp(2.6rem, 6vw, 4rem);
     font-weight: 400; line-height: 1.08;
     letter-spacing: -0.03em; color: #fff;
-    margin-bottom: 16px;
+    margin-bottom: 22px;
   }
-  .hero-text h1 em { font-style: italic; color: #6BA3FF; }
-  .hero-text .subhead {
-    font-size: 0.95rem; color: rgba(255,255,255,0.55);
-    line-height: 1.6; margin-bottom: 28px; max-width: 420px;
+  .hero-centered h1 em { font-style: italic; color: #6BA3FF; }
+  .hero-centered .subhead {
+    font-size: 1rem; color: rgba(255,255,255,0.65);
+    line-height: 1.6; margin: 0 auto 40px; max-width: 620px;
   }
   .hero-form {
-    display: flex; align-items: center; gap: 8px;
-    max-width: 460px; margin-top: 4px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 999px;
-    padding: 6px 6px 6px 20px;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    max-width: 520px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 12px;
   }
   .hero-form input[type="email"] {
-    flex: 1; min-width: 0;
-    background: transparent; border: none; outline: none;
+    width: 100%;
+    background: #fff; border: 1px solid rgba(255,255,255,0.18);
+    outline: none;
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.92rem; color: #fff;
-    padding: 10px 0;
+    font-size: 0.95rem; color: #111;
+    padding: 18px 24px; border-radius: 999px;
+    transition: border-color 0.18s ease;
   }
-  .hero-form input[type="email"]::placeholder { color: rgba(255,255,255,0.55); }
+  .hero-form input[type="email"]::placeholder { color: #9a9a9a; }
+  .hero-form input[type="email"]:focus { border-color: #6BA3FF; }
   .hero-form button {
-    flex-shrink: 0;
-    background: #fff; color: var(--navy);
+    width: 100%;
+    background: #000; color: #fff;
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.88rem; font-weight: 600;
-    padding: 12px 24px; border: none; border-radius: 999px;
+    font-size: 0.95rem; font-weight: 600;
+    padding: 18px 24px; border: none; border-radius: 999px;
     cursor: pointer;
-    transition: opacity 0.2s, transform 0.15s;
+    transition: background 0.18s ease, transform 0.12s ease;
   }
-  .hero-form button:hover { opacity: 0.9; transform: translateY(-1px); }
+  .hero-form button:hover { background: #1a1a1a; transform: translateY(-1px); }
   .hero-proof {
-    margin-top: 20px; display: flex; align-items: center; gap: 8px;
+    margin-top: 24px; display: flex; align-items: center; gap: 8px;
+    justify-content: center;
   }
   .hero-stars { color: #FACC15; font-size: 1rem; letter-spacing: 2px; }
-  .hero-proof-text { font-size: 0.78rem; color: rgba(255,255,255,0.45); }
-
-  /* GUIDE MOCKUP */
-  .hero-mockup { flex-shrink: 0; position: relative; z-index: 1; }
-  .mockup-book {
-    width: 260px; height: 340px;
-    background: linear-gradient(145deg, #f5f5f0 0%, #e8e8e0 100%);
-    border-radius: 4px 12px 12px 4px;
-    box-shadow: 8px 8px 32px rgba(0,0,0,0.3), -2px 0 8px rgba(0,0,0,0.1);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 32px; text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .mockup-book::before {
-    content: ''; position: absolute;
-    left: 0; top: 0; bottom: 0; width: 16px;
-    background: linear-gradient(90deg, rgba(0,0,0,0.08) 0%, transparent 100%);
-  }
-  .mockup-badge {
-    font-size: 0.6rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.15em;
-    color: var(--highlight); margin-bottom: 20px;
-  }
-  .mockup-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 1.35rem; line-height: 1.2;
-    color: var(--navy); margin-bottom: 12px;
-  }
-  .mockup-sub { font-size: 0.68rem; color: var(--muted); line-height: 1.5; }
-  .mockup-pages {
-    position: absolute; bottom: -4px; right: -4px;
-    width: 260px; height: 340px;
-    border-radius: 4px 12px 12px 4px;
-    background: #e0e0d8; z-index: -1; transform: rotate(2deg);
-  }
+  .hero-proof-text { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
 
   /* PROOF BAR (stats + landed-offers logos) */
   .proof-bar {
@@ -377,14 +341,10 @@
 
   @media (max-width: 768px) {
     .container { padding: 0 24px; }
-    .hero-split { flex-direction: column; gap: 40px; padding: 52px 0 56px; text-align: center; }
-    .hero-text .subhead { margin-left: auto; margin-right: auto; }
-    .hero-form { margin-left: auto; margin-right: auto; flex-direction: column; gap: 10px; padding: 12px; border-radius: 18px; max-width: 360px; }
-    .hero-form input[type="email"] { width: 100%; padding: 12px 14px; text-align: center; }
-    .hero-form button { width: 100%; padding: 13px 24px; }
-    .hero-proof { justify-content: center; }
-    .hero-mockup { display: none; }
-    .hero-text h1 { font-size: 2rem; }
+    .hero-centered { padding: 72px 0 80px; }
+    .hero-centered h1 { font-size: 2.2rem; }
+    .hero-form input[type="email"] { padding: 15px 20px; }
+    .hero-form button { padding: 15px 20px; }
     .pain-list { grid-template-columns: 1fr; }
     .proof-bar { grid-template-columns: 1fr; gap: 32px; padding: 40px 0; }
     .proof-stats { text-align: center; }
@@ -527,26 +487,16 @@
 </aside>
 <div class="hero-wrapper">
   <div class="container">
-    <div class="hero-split">
-      <div class="hero-text">
-        <h1>Break into <em>European VC</em></h1>
-        <p class="subhead">The only recruiting playbook for European venture capital. Built by industry professionals.</p>
-        <form class="hero-form seva-form formkit-form" action="https://app.kit.com/forms/9321532/subscriptions" method="post" data-sv-form="9321532" data-uid="7fa147fbf7" data-format="inline" data-version="5">
-          <input type="email" name="email_address" aria-label="Your Email Address" placeholder="Your email address" required>
-          <button type="submit">Get the playbook →</button>
-        </form>
-        <div class="hero-proof">
-          <span class="hero-stars">★★★★★</span>
-          <span class="hero-proof-text">4.9/5 avg. rating</span>
-        </div>
-      </div>
-      <div class="hero-mockup">
-        <div class="mockup-pages"></div>
-        <div class="mockup-book">
-          <div class="mockup-badge">Buyside School</div>
-          <div class="mockup-title">The European VC Recruiting Playbook</div>
-          <div class="mockup-sub">7 chapters · 2026 edition</div>
-        </div>
+    <div class="hero-centered">
+      <h1>Break into <em>European VC</em></h1>
+      <p class="subhead">Join a community of ex-bankers, consultants, MBAs, undergrads, and career-switchers learning how to get a job in Venture Capital.</p>
+      <form class="hero-form seva-form formkit-form" action="https://app.kit.com/forms/9321532/subscriptions" method="post" data-sv-form="9321532" data-uid="7fa147fbf7" data-format="inline" data-version="5">
+        <input type="email" name="email_address" aria-label="Your Email Address" placeholder="Your Email Address" required>
+        <button type="submit">Get the playbook →</button>
+      </form>
+      <div class="hero-proof">
+        <span class="hero-stars">★★★★★</span>
+        <span class="hero-proof-text">4.9/5 avg. rating</span>
       </div>
     </div>
   </div>
