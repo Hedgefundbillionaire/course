@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/testimonials",
-      "destination": "/index.html"
+      "destination": "/index"
     }
   ]
 }
