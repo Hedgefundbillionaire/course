@@ -114,7 +114,7 @@
   .password-toggle:focus { outline: none; }
   .password-toggle svg { display: block; }
 
-  .turnstile-box {
+  .verification-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -125,8 +125,8 @@
     padding: 14px 18px;
     margin-bottom: 24px;
   }
-  .turnstile-left { display: flex; align-items: center; gap: 14px; }
-  .turnstile-checkbox {
+  .verification-left { display: flex; align-items: center; gap: 14px; }
+  .verification-checkbox {
     width: 26px; height: 26px;
     border: 2px solid #9A9A9A;
     border-radius: 4px;
@@ -138,48 +138,49 @@
     flex-shrink: 0;
     transition: border-color 0.15s ease, background 0.15s ease;
   }
-  .turnstile-checkbox[data-checked="true"] {
+  .verification-checkbox[data-checked="true"] {
     background: var(--highlight);
     border-color: var(--highlight);
   }
-  .turnstile-checkbox[data-checked="true"]::after {
+  .verification-checkbox[data-checked="true"]::after {
     content: '';
     width: 6px; height: 11px;
     border: solid #fff;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg) translate(-1px, -1px);
   }
-  .turnstile-label {
+  .verification-label {
     font-size: 0.95rem;
     color: #333;
   }
-  .turnstile-right {
+  .verification-right {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 4px;
     flex-shrink: 0;
   }
-  .turnstile-brand {
+  .verification-brand {
     display: flex;
     align-items: center;
     gap: 6px;
   }
-  .turnstile-brand-text {
-    font-size: 0.7rem;
+  .verification-brand-text {
+    font-size: 0.76rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     color: #404041;
   }
-  .turnstile-links {
+  .verification-links {
     font-size: 0.65rem;
     color: #606060;
+    text-align: right;
   }
-  .turnstile-links a {
+  .verification-links a {
     color: #606060;
     text-decoration: underline;
   }
-  .turnstile-links a:hover { color: var(--fg); }
+  .verification-links a:hover { color: var(--fg); }
 
   .login-footer-row {
     display: flex;
@@ -237,6 +238,21 @@
   }
   .login-submit:hover { opacity: 0.92; }
   .login-submit:active { transform: translateY(1px); }
+  .login-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .login-message {
+    margin-top: 18px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--muted);
+    min-height: 24px;
+  }
+  .login-message.is-error { color: #8c2f12; }
+  .login-message.is-success { color: #134b2f; }
 
   .login-links {
     margin-top: 28px;
@@ -254,8 +270,8 @@
   @media (max-width: 560px) {
     main.login-main { padding: 40px 16px 32px; }
     .login-card { padding: 28px 24px 24px; }
-    .turnstile-box { padding: 12px 14px; }
-    .turnstile-label { font-size: 0.88rem; }
+    .verification-box { padding: 12px 14px; }
+    .verification-label { font-size: 0.88rem; }
     .login-footer-row { flex-direction: row; flex-wrap: wrap; gap: 18px; }
   }
 </style>
@@ -328,23 +344,17 @@
         </div>
       </div>
 
-      <div class="turnstile-box" role="group" aria-label="Human verification">
-        <div class="turnstile-left">
-          <span class="turnstile-checkbox" id="turnstileCheck" role="checkbox" tabindex="0" aria-checked="false" data-checked="false"></span>
-          <span class="turnstile-label">Verify you are human</span>
+      <div class="verification-box" role="group" aria-label="Human verification">
+        <div class="verification-left">
+          <span class="verification-checkbox" id="verificationCheck" role="checkbox" tabindex="0" aria-checked="false" data-checked="false"></span>
+          <span class="verification-label">Confirm you're not a bot</span>
         </div>
-        <div class="turnstile-right">
-          <div class="turnstile-brand">
-            <span class="turnstile-brand-text">CLOUDFLARE</span>
-            <svg width="22" height="18" viewBox="0 0 48 36" fill="none" aria-hidden="true">
-              <path d="M40.5 22.2c.3-1 .1-2-.5-2.7-.6-.6-1.4-1-2.4-1l-19-.3c-.1 0-.2-.1-.3-.2-.1-.1-.1-.2 0-.3.1-.2.3-.4.5-.4l19.2-.3c2.3-.1 4.7-2 5.6-4.2l1.1-2.9c0-.1.1-.2.1-.3-1.3-5.7-6.4-10-12.5-10-5.6 0-10.4 3.6-12.1 8.7-1.1-.8-2.5-1.3-4.1-1.1-2.8.3-5.1 2.6-5.4 5.4-.1.7-.1 1.4.1 2.1-4.6.1-8.3 3.9-8.3 8.6 0 .4 0 .8.1 1.2 0 .2.2.3.4.3h36.8c.2 0 .4-.1.4-.3l.3-.9z" fill="#F38020"/>
-              <path d="M43.5 13.2h-.6c-.1 0-.2.1-.3.2l-.8 2.6c-.3 1-.1 2 .5 2.7.6.6 1.4 1 2.4 1l4 .2c.1 0 .2.1.3.2.1.1.1.2 0 .3-.1.2-.3.4-.5.4l-4.1.3c-2.3.1-4.7 2-5.6 4.2l-.3 1c-.1.1 0 .3.2.3h14.5c.2 0 .4-.1.4-.3.2-.8.4-1.7.4-2.6 0-5.3-4.3-9.5-9.5-10.5z" fill="#FAAD3F"/>
-            </svg>
+        <div class="verification-right">
+          <div class="verification-brand">
+            <span class="verification-brand-text">BUYSIDE SCHOOL</span>
           </div>
-          <div class="turnstile-links">
-            <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Privacy</a>
-            <span> · </span>
-            <a href="https://www.cloudflare.com/website-terms/" target="_blank" rel="noopener">Help</a>
+          <div class="verification-links">
+            We use this check to avoid spam on the login page.
           </div>
         </div>
       </div>
@@ -356,12 +366,13 @@
         </label>
         <button type="submit" class="login-submit">Log In</button>
       </div>
+      <div class="login-message" id="loginMessage" aria-live="polite"></div>
     </form>
 
     <div class="login-links">
-      <a href="#">Register</a>
+      <a href="/checkout">Register</a>
       <span class="sep">|</span>
-      <a href="#">Lost your password?</a>
+      <a href="/lost-password">Lost your password?</a>
     </div>
   </div>
 </main>
@@ -390,23 +401,40 @@
       eye.innerHTML = showing ? eyeOpen : eyeClosed;
     });
 
-    const check = document.getElementById('turnstileCheck');
+    const check = document.getElementById('verificationCheck');
+    const loginForm = document.getElementById('loginForm');
+    const loginMessage = document.getElementById('loginMessage');
+    const loginSubmit = loginForm.querySelector('.login-submit');
     function toggleCheck() {
       const next = check.getAttribute('data-checked') !== 'true';
       check.setAttribute('data-checked', String(next));
       check.setAttribute('aria-checked', String(next));
+      loginSubmit.disabled = !next;
     }
     check.addEventListener('click', toggleCheck);
     check.addEventListener('keydown', function (e) {
       if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggleCheck(); }
     });
+    loginSubmit.disabled = true;
 
-    document.getElementById('loginForm').addEventListener('submit', function (e) {
+    loginForm.addEventListener('submit', function (e) {
       e.preventDefault();
       if (check.getAttribute('data-checked') !== 'true') {
+        loginMessage.className = 'login-message is-error';
+        loginMessage.textContent = 'Please confirm you are not a bot before continuing.';
         check.focus();
         return;
       }
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value.trim();
+      if (!email || !password) {
+        loginMessage.className = 'login-message is-error';
+        loginMessage.textContent = 'Enter both your email and password to continue.';
+        return;
+      }
+      loginMessage.className = 'login-message is-success';
+      loginMessage.textContent = 'Redirecting you to checkout...';
+      window.location.href = '/checkout';
     });
   })();
 </script>
